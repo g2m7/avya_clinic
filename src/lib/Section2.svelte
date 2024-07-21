@@ -9,7 +9,7 @@
 	});
 </script>
 
-<section class="mt-8 mb-14 py-16 px-4">
+<section class="mt-8 mb-8 py-16 px-4">
 	<div class="container mx-auto max-w-[700px]">
 		<div class="text-center">
 			{#if isVisible}

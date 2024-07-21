@@ -1,17 +1,21 @@
 <script>
+	import HealingSection from './../lib/HealingSection.svelte';
 	import '../app.css';
 	import Section2 from './../lib/Section2.svelte';
 	import Header from '$lib/Header.svelte';
 	import Hero from '$lib/Hero.svelte';
 	import ShopCTA from '$lib/ShopCTA.svelte';
 	import Section3 from '$lib/Section3.svelte';
+	import HealingCTA from '$lib/HealingCTA.svelte';
 </script>
 
 <ShopCTA />
 <Header />
 <Hero />
 <Section2 />
-<Section3/>
+<Section3 />
+<HealingSection />
+<HealingCTA />
 
 <slot />
 
@@ -40,7 +44,7 @@
 	:global(h3) {
 		font-family: 'Outfit', sans-serif;
 		font-weight: 400;
-		font-size: 22px;
+		font-size: 34px;
 		color: #333133;
 		letter-spacing: -1px;
 	}
