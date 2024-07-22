@@ -19,7 +19,7 @@
     <div class="flex justify-between items-center h-16">
       <!-- Logo Area -->
       <div class="flex-shrink-0 invert">
-        <img src="https://the-practitioner.cmsmasters.net/wp-content/uploads/2022/05/logo-landing-2.svg" alt="The Practitioner" class="w-full">
+        <img src="/images/logo-landing-2.png" alt="The Practitioner" class="w-24">
       </div>
       
       <!-- Navigation Links -->

@@ -14,9 +14,9 @@
 		<div class="text-center">
 			{#if isVisible}
 				<div in:fly={{ y: 50, duration: 1000 }}>
-					<h3 in:fade={{ duration: 1000 }} class="mb-12 font-radley text-2xl">About me</h3>
+					<h3 in:fade={{ duration: 1000 }} class="mb-12 font-radley font-[#989898] text-2xl">About me</h3>
 					<h2 class="mb-12 h-auto">
-						Hi! I'm Dr. Serena Martin, your
+						Hi! I'm Dr. Avirup Majumder, your
 						<span class="text-[#88abda]">naturopathic doctor </span>
 						and nutrition expert in <span class="text-[#88abda]">New York City.</span>
 					</h2>

@@ -4,18 +4,24 @@
 	import Section2 from './../lib/Section2.svelte';
 	import Header from '$lib/Header.svelte';
 	import Hero from '$lib/Hero.svelte';
-	import ShopCTA from '$lib/ShopCTA.svelte';
 	import Section3 from '$lib/Section3.svelte';
 	import HealingCTA from '$lib/HealingCTA.svelte';
+	import Testimonials from '$lib/Testimonials.svelte';
+	import SolutionCta from '$lib/SolutionCTA.svelte';
+	import SocialLinks from '$lib/SocialLinks.svelte';
+	import Footer from '$lib/Footer.svelte';
 </script>
 
-<ShopCTA />
 <Header />
 <Hero />
 <Section2 />
 <Section3 />
 <HealingSection />
 <HealingCTA />
+<Testimonials />
+<SolutionCta />
+<SocialLinks />
+<Footer />
 
 <slot />
 
@@ -68,6 +74,5 @@
 		font-family: 'Radley, sans-serif';
 		font-weight: 400;
 		font-style: italic;
-		color: #989898;
 	}
 </style>

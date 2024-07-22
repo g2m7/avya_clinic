@@ -144,7 +144,7 @@
 					class:opacity-0={!isVisible}
 					class:opacity-100={isVisible}
 				>
-					<p class="font-radley mb-10 text-2xl">Naturopathic Care with Dr. Martin</p>
+					<p class="font-radley font-[#989898] mb-10 text-2xl">Naturopathic Care with Dr. Avirup</p>
 					<h1 class="text-4xl md:text-5xl lg:text-[82px] mb-12">
 						Natural Healing,<br />
 						<span class="text-[#527359]">Simplified</span>
@@ -173,7 +173,7 @@
 						bind:this={imageElement}
 						on:mousemove={handleMouseMove}
 						src="/images/hero.jpg"
-						alt="Dr. Martin"
+						alt="Dr. Avirup"
 						class="w-full h-auto rounded-tl-[40%] rounded-br-[40%] z-10 mx-auto transition-transform duration-300 ease-out"
 						style="transform: translate({$heroPosition.x}px, {$heroPosition.y}px)"
 					/>
