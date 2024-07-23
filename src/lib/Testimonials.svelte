@@ -14,19 +14,19 @@
 			text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis error, quaerat mollitia in incidunt minus! Natus nostrum vero accusantium dolorem doloribus dolor at ut eum quasi doloremque, sit maxime dolore odit voluptates harum beatae cupiditate nulla recusandae in culpa necessitatibus? Laboriosam a temporibus voluptate et vel? Adipisci possimus repellat expedita!',
 			author: 'John Doe',
 			image:
-				'{base}/images/quote-1.jpg'
+				'/images/quote-1.jpg'
 		},
 		{
 			text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis error, quaerat mollitia in incidunt minus! Natus nostrum vero accusantium dolorem doloribus dolor at ut eum quasi doloremque, sit maxime dolore odit voluptates harum beatae cupiditate nulla recusandae in culpa necessitatibus? Laboriosam a temporibus voluptate et vel? Adipisci possimus repellat expedita!',
 			author: 'John Doe',
 			image:
-				'{base}/images/quote-2.jpg'
+				'/images/quote-2.jpg'
 		},
 		{
 			text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis error, quaerat mollitia in incidunt minus! Natus nostrum vero accusantium dolorem doloribus dolor at ut eum quasi doloremque, sit maxime dolore odit voluptates harum beatae cupiditate nulla recusandae in culpa necessitatibus? Laboriosam a temporibus voluptate et vel? Adipisci possimus repellat expedita!',
 			author: 'John Doe',
 			image:
-				'{base}/images/quote-3.jpg'
+				'/images/quote-3.jpg'
 		}
 	];
 </script>
