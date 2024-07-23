@@ -127,7 +127,7 @@
 					}}
 				>
 					<img
-						src="{base}{base}/images/shape-1.png"
+						src="{base}/images/shape-1.png"
 						alt="Decorative dots"
 						class="absolute transition-all duration-300 ease-in-out"
 						class:opacity-0={!isVisible}
