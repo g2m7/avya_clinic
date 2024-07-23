@@ -39,6 +39,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@tailwindcss/aspect-ratio": "^0.4.2"
+		"@sveltejs/adapter-static": "^3.0.2",
+		"@tailwindcss/aspect-ratio": "^0.4.2",
+		"global": "^4.4.0"
 	}
 }

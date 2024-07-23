@@ -154,7 +154,7 @@
 						change your life.
 					</p>
 					<a
-						href="/about-me"
+						href=""
 						class="inline-block bg-[#BED173] text-lg text-white font-medium py-4 px-11 rounded-md hover:bg-[#527359] transition duration-300 ease-in-out"
 					>
 						Start Here

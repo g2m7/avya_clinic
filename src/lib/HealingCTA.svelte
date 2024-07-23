@@ -31,7 +31,7 @@
 						None of these are your actual problem. Let's figure out what's really causing them.
 					</h3>
 					<a
-						href="/contacts/"
+						href=""
 						class="inline-block px-12 py-4 bg-white text-black text-lg rounded-md hover:bg-transparent hover:text-white hover:border-white border transition duration-300"
 						style="transform: translateY({yOffset}px);"
 					>

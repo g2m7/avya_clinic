@@ -21,7 +21,7 @@
 						and nutrition expert in <span class="text-[#88abda]">New York City.</span>
 					</h2>
 					<a
-						href="/about-me"
+						href=""
 						class="inline-flex items-center px-6 py-3 text-[17px] text-[#5a595a] hover:text-[#BED173] rounded-md transition-colors delay-100 duration-300"
 						in:fade={{ delay: 500, duration: 1000 }}
 					>
