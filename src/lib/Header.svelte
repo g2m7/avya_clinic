@@ -47,7 +47,7 @@
 			<!-- CTA Button -->
 			<div class="hidden md:block">
 				<a
-					href="https://1.envato.market/cmsmasters-the-practitioner"
+					href=""
 					target="_blank"
 					class="inline-flex items-center px-7 py-3 bg-[#BED173] text-white text-lg font-bold rounded-md hover:bg-[#ec9f57] transition-colors duration-300"
 				>
