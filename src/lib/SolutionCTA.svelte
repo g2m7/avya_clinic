@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
+	import { base } from '$app/paths';
 
 	let isVisible = false;
 
@@ -52,19 +53,19 @@
 
 	<!-- Decorative elements -->
 	<img
-		src="/images/home-back-9.png"
+		src="{base}/images/home-back-9.png"
 		alt="Decorative element"
 		class="absolute bottom-0 left-0 w-48"
 	/>
 
 	<img
-		src="/images/home-back-6.png"
+		src="{base}/images/home-back-6.png"
 		alt="Decorative element"
 		class="absolute bottom-10 left-20 w-24"
 		style="transform: rotate({rotation}deg)"
 	/>
 
-	<img src="/images/home-back-8.png" alt="Decorative element" class="absolute top-0 right-0 w-96" />
+	<img src="{base}/images/home-back-8.png" alt="Decorative element" class="absolute top-0 right-0 w-96" />
 </section>
 
 <style>

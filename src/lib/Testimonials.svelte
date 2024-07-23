@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
+	import { base } from '$app/paths';
 
 	let isVisible = false;
 
@@ -13,19 +14,19 @@
 			text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis error, quaerat mollitia in incidunt minus! Natus nostrum vero accusantium dolorem doloribus dolor at ut eum quasi doloremque, sit maxime dolore odit voluptates harum beatae cupiditate nulla recusandae in culpa necessitatibus? Laboriosam a temporibus voluptate et vel? Adipisci possimus repellat expedita!',
 			author: 'John Doe',
 			image:
-				'/images/quote-1.jpg'
+				'{base}/images/quote-1.jpg'
 		},
 		{
 			text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis error, quaerat mollitia in incidunt minus! Natus nostrum vero accusantium dolorem doloribus dolor at ut eum quasi doloremque, sit maxime dolore odit voluptates harum beatae cupiditate nulla recusandae in culpa necessitatibus? Laboriosam a temporibus voluptate et vel? Adipisci possimus repellat expedita!',
 			author: 'John Doe',
 			image:
-				'/images/quote-2.jpg'
+				'{base}/images/quote-2.jpg'
 		},
 		{
 			text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis error, quaerat mollitia in incidunt minus! Natus nostrum vero accusantium dolorem doloribus dolor at ut eum quasi doloremque, sit maxime dolore odit voluptates harum beatae cupiditate nulla recusandae in culpa necessitatibus? Laboriosam a temporibus voluptate et vel? Adipisci possimus repellat expedita!',
 			author: 'John Doe',
 			image:
-				'/images/quote-3.jpg'
+				'{base}/images/quote-3.jpg'
 		}
 	];
 </script>
@@ -61,7 +62,7 @@
 	{#if isVisible}
 		<img
 			in:fade
-			src="/images/home-back-3.png"
+			src="{base}/images/home-back-3.png"
 			alt="Decorative shape"
 			class="absolute bottom-0 w-28 right-20"
 		/>

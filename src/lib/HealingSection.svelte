@@ -1,4 +1,5 @@
 <script>
+	import { base } from '$app/paths';
   import { onMount } from 'svelte';
   import { fly } from 'svelte/transition';
 
@@ -12,7 +13,7 @@
 <section class="flex flex-col md:flex-row w-full h-[95vh]">
   <!-- Left column (image) -->
   <div class="w-full md:w-1/2 h-full">
-    <img src="/images/healing-section.jpg" alt="Background" class="w-full h-full object-cover" />
+    <img src="{base}/images/healing-section.jpg" alt="Background" class="w-full h-full object-cover" />
   </div>
 
   <!-- Right column (content) -->

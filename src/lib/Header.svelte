@@ -12,7 +12,7 @@
 		<div class="flex justify-between items-center h-16">
 			<!-- Logo Area -->
 			<div class="flex-shrink-0 invert">
-				<img src="/images/logo-landing-2.png" alt="The Practitioner" class="w-24" />
+				<img src="{base}/images/logo-landing-2.png" alt="The Practitioner" class="w-24" />
 			</div>
 
 			<!-- Navigation Links -->

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { spring } from 'svelte/motion';
+	import { base } from '$app/paths';
 
 	let mouseX = 0;
 	let mouseY = 0;
@@ -126,7 +127,7 @@
 					}}
 				>
 					<img
-						src="/images/shape-1.png"
+						src="{base}{base}/images/shape-1.png"
 						alt="Decorative dots"
 						class="absolute transition-all duration-300 ease-in-out"
 						class:opacity-0={!isVisible}
@@ -172,7 +173,7 @@
 					<img
 						bind:this={imageElement}
 						on:mousemove={handleMouseMove}
-						src="/images/hero.jpg"
+						src="{base}/images/hero.jpg"
 						alt="Dr. Avirup"
 						class="w-full h-auto rounded-tl-[40%] rounded-br-[40%] z-10 mx-auto transition-transform duration-300 ease-out"
 						style="transform: translate({$heroPosition.x}px, {$heroPosition.y}px)"
@@ -180,13 +181,13 @@
 				</div>
 				<img
 					bind:this={shapeElement}
-					src="/images/shape-2.png"
+					src="{base}/images/shape-2.png"
 					alt="Decorative shape"
 					class="shape-2 absolute translate-y-5 lg:max-w-[615px]"
 					style="transform: translate({$shapePosition.x}px, {$shapePosition.y}px)"
 				/>
 				<img
-					src="/images/home-back-10.png"
+					src="{base}/images/home-back-10.png"
 					alt="Decorative dots"
 					class="absolute top-10 right-10 w-16 h-auto transition-all duration-300 ease-in-out"
 					class:opacity-0={!isVisible}
