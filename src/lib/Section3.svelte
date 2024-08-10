@@ -73,9 +73,7 @@
 					</div>
 					<h5 class="text-xl font-semibold mb-2">Board-Certified</h5>
 					<p class="text-gray-600">
-						A highly qualified nutrition specialist, Serena is a graduate of the prestigious New
-						York University Clinical Nutrition program. She went on to complete an internship in
-						dietetics at New York Presbyterian Hospital.
+						Dr. Avirup Majumder brings extensive medical expertise to Siliguri. With an MBBS from North Bengal Medical College and an MD in General Medicine from KGMU, Lucknow, he's also certified in Diabetes Management. His credentials ensure patients receive care of the highest standard.
 					</p>
 				</div>
 
@@ -111,11 +109,9 @@
 						</svg>
 					</div>
 					<h5 class="text-xl font-semibold mb-2">Top-Rated</h5>
-					<p class="text-gray-600">
-						Voted the top dietitian in NYC in 2015, Serena does more than just supervise the diet of
-						her clients. By creating customized nutrition plans tailored to your medical history,
-						daily routine, preferences and diet.
-					</p>
+					<span class="text-gray-600">
+						<p>Recognized for his academic excellence, Dr. Majumder graduated third in his MD class. His research is published in respected journals like BMJ Case Reports and Springer Nature. As a member of prestigious medical societies including API and ISCCM, he stays at the forefront of medical advancements.</p>
+					</span>
 				</div>
 
 				<div
@@ -190,9 +186,7 @@
 					</div>
 					<h5 class="text-xl font-semibold mb-2">Client-Focused</h5>
 					<p class="text-gray-600">
-						By building partnerships with clients, Serena can help set realistic goals and implement
-						lifelong changes. This allows clients to improve their overall wellness, enjoy longterm
-						weight loss, and manage chronic conditions.
+						Committed to serving his community, Dr. Majumder practices in Siliguri, specializing in general medicine and diabetology. His affiliations with multiple hospitals ensure accessible, comprehensive care. Dr. Majumder's approach combines medical excellence with a deep understanding of local health needs.
 					</p>
 				</div>
 			{/if}
@@ -200,6 +194,3 @@
 	</div>
 </section>
 
-<style>
-	/* Add any additional styles here */
-</style>

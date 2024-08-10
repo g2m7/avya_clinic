@@ -15,12 +15,12 @@
 			{#if isVisible}
 				<div in:fly={{ y: 50, duration: 1000 }}>
 					<h3 in:fade={{ duration: 1000 }} class="mb-12 font-radley font-[#989898] text-2xl">About me</h3>
-					<h2 class="mb-12 h-auto">
-						Hi! I'm Dr. Avirup Majumder, your
-						<span class="text-[#88abda]">naturopathic doctor </span>
-						and nutrition expert in <span class="text-[#88abda]">New York City.</span>
-					</h2>
-					<a
+					<h2 class="h-auto">
+						Hi! I'm Dr. Avirup Majumder, Esteemed Physician,
+						<span class="text-[#88abda]"> Diabetologist, </span>
+						and Internal Medicine Specialist in <span class="text-[#88abda]">Siliguri.</span>
+					</h2>					
+					<!-- <a
 						href=""
 						class="inline-flex items-center px-6 py-3 text-[17px] text-[#5a595a] hover:text-[#BED173] rounded-md transition-colors delay-100 duration-300"
 						in:fade={{ delay: 500, duration: 1000 }}
@@ -40,7 +40,7 @@
 								d="M14 5l7 7m0 0l-7 7m7-7H3"
 							></path>
 						</svg>
-					</a>
+					</a> -->
 				</div>
 			{/if}
 		</div>

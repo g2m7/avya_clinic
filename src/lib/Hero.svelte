@@ -29,16 +29,41 @@
 		isVisible = true;
 	});
 
+	let imageContainer: HTMLDivElement;
+
+	const containerPosition = spring(
+		{ x: 0, y: 0 },
+		{
+			stiffness: 0.05,
+			damping: 0.3
+		}
+	);
+
+	onMount(() => {
+		isVisible = true;
+	});
+
 	function handleMouseMove(event: MouseEvent) {
-		if (imageElement && shapeElement) {
-			const rect = imageElement.getBoundingClientRect();
+		if (imageContainer && shapeElement) {
+			const rect = imageContainer.getBoundingClientRect();
 			const mouseX = (event.clientX - rect.left) / rect.width - 0.5;
 			const mouseY = (event.clientY - rect.top) / rect.height - 0.5;
 
-			heroPosition.set({ x: mouseX * 10, y: mouseY * 10 });
+			containerPosition.set({ x: mouseX * 20, y: mouseY * 20 });
 			shapePosition.set({ x: -mouseX * 40, y: -mouseY * 40 });
 		}
 	}
+
+	// function handleMouseMove(event: MouseEvent) {
+	// 	if (imageElement && shapeElement) {
+	// 		const rect = imageElement.getBoundingClientRect();
+	// 		const mouseX = (event.clientX - rect.left) / rect.width - 0.5;
+	// 		const mouseY = (event.clientY - rect.top) / rect.height - 0.5;
+
+	// 		heroPosition.set({ x: mouseX * 10, y: mouseY * 10 });
+	// 		shapePosition.set({ x: -mouseX * 40, y: -mouseY * 40 });
+	// 	}
+	// }
 
 	interface ScrollSpringParams {
 		translateY: number;
@@ -145,14 +170,16 @@
 					class:opacity-0={!isVisible}
 					class:opacity-100={isVisible}
 				>
-					<p class="font-radley font-[#989898] mb-10 text-2xl">Naturopathic Care with Dr. Avirup</p>
+					<p class="font-radley font-[#989898] mb-10 text-2xl">
+						Expert Care with Dr. Avirup Majumder
+					</p>
 					<h1 class="text-4xl md:text-5xl lg:text-[82px] mb-12">
-						Natural Healing,<br />
-						<span class="text-[#527359]">Simplified</span>
+						Modern Medicine,<br />
+						<span class="text-[#527359]">Personalized</span>
 					</h1>
 					<p class="mb-12 max-w-xl mx-auto lg:mx-0">
-						To heal the core you must find the root cause. It's simpler than you think, and it will
-						change your life.
+						Uncover the root cause to unlock your health. It's more achievable than you think. Let's
+						embark on this journey together.
 					</p>
 					<a
 						href=""
@@ -166,17 +193,17 @@
 			<!-- Right Column -->
 			<div class="w-full lg:w-1/2 relative mb-[-60px]">
 				<div
-					class="transition-all duration-300 ease-in-out transform"
+					bind:this={imageContainer}
+					on:mousemove={handleMouseMove}
+					class="transition-all duration-300 ease-in-out transform aspect-square relative overflow-hidden rounded-tl-[40%] rounded-br-[40%]"
 					class:translate-y-10={!isVisible}
 					class:translate-y-0={isVisible}
+					style="transform: translate({$containerPosition.x}px, {$containerPosition.y}px)"
 				>
 					<img
-						bind:this={imageElement}
-						on:mousemove={handleMouseMove}
-						src="{base}/images/hero.jpg"
+						src="{base}/images/hero2.jpg"
 						alt="Dr. Avirup"
-						class="w-full h-auto rounded-tl-[40%] rounded-br-[40%] z-10 mx-auto transition-transform duration-300 ease-out"
-						style="transform: translate({$heroPosition.x}px, {$heroPosition.y}px)"
+						class="absolute w-full h-full object-cover object-center"
 					/>
 				</div>
 				<img

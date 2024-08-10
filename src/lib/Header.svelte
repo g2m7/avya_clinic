@@ -11,8 +11,8 @@
 	<nav class="max-w-full mx-2 my-3 px-8 sm:px-4 lg:px-6">
 		<div class="flex justify-between items-center h-16">
 			<!-- Logo Area -->
-			<div class="flex-shrink-0 invert">
-				<img src="{base}/images/logo-landing-2.png" alt="The Practitioner" class="w-24" />
+			<div class="flex-shrink-0">
+				<img src="{base}/images/logo.jpeg" alt="The Practitioner" class="w-32" />
 			</div>
 
 			<!-- Navigation Links -->

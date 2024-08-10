@@ -41,6 +41,8 @@
 	"dependencies": {
 		"@sveltejs/adapter-static": "^3.0.2",
 		"@tailwindcss/aspect-ratio": "^0.4.2",
-		"global": "^4.4.0"
+		"global": "^4.4.0",
+		"lucide-react": "^0.424.0",
+		"svelte-carousel": "^1.0.25"
 	}
 }
