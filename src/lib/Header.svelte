@@ -1,14 +1,41 @@
-<script>
+<script lang="ts">
 	import { base } from '$app/paths';
+	import { fade } from 'svelte/transition';
+	import { onMount } from 'svelte';
+
 	let isOffcanvasOpen = false;
+	let showButton = false;
+	let y: number;
 
 	function toggleOffcanvas() {
 		isOffcanvasOpen = !isOffcanvasOpen;
 	}
+
+	function handleScroll() {
+		y = window.scrollY;
+		showButton = y > 200; // Show button when scrolled down 200px
+	}
+
+	onMount(() => {
+		window.addEventListener('scroll', handleScroll);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	});
+
+	function scrollToTop() {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}
 </script>
 
 <header class="absolute w-full z-50 bg-[#faf5f0]">
-	<nav class="max-w-full mx-2 my-3 px-8 sm:px-4 lg:px-6">
+	<nav class="max-w-full md:mx-2 my-3 px-8 sm:px-4 lg:px-6">
+		<img
+			src="{base}/images/home-back-8.png"
+			alt="Decorative element"
+			class="absolute -top-10 -left-10 -rotate-12 w-96 scale-x-[-1] -z-10 opacity-30 md:hidden"
+		/>
+
 		<div class="flex justify-between items-center h-16">
 			<!-- Logo Area -->
 			<div class="flex-shrink-0">
@@ -56,11 +83,11 @@
 			</div>
 
 			<!-- Mobile menu button -->
-			<div class="md:hidden">
+			<div class="md:hidden bg-[#BED173] hover:bg-white p-1 rounded-full">
 				<button
 					on:click={toggleOffcanvas}
 					type="button"
-					class="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-[#BED173] hover:bg-white/10 transition-colors duration-300"
+					class="inline-flex items-center justify-center p-2 rounded-md text-white md:hover:text-[#BED173] hover:bg-white/10 transition-colors duration-300"
 					aria-controls="mobile-menu"
 					aria-expanded="false"
 				>
@@ -121,6 +148,7 @@
 
 <!-- Scroll to top button -->
 <button
+	on:click={scrollToTop}
 	class="fixed bottom-4 right-4 bg-[#527359] text-white p-2 rounded-full hover:bg-[#333133] transition-colors duration-300"
 >
 	<svg

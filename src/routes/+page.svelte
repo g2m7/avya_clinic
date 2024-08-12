@@ -26,6 +26,10 @@
 <slot />
 
 <style lang="postcss">
+	:global(html, body) {
+		max-width: 100%;
+		overflow-x: hidden;
+	}
 	:global(html) {
 		font-family: 'Outfit', sans-serif;
 	}
@@ -55,14 +59,6 @@
 		letter-spacing: -1px;
 	}
 
-	:global(h4) {
-		font-family: 'Outfit', sans-serif;
-		font-weight: 400;
-		font-size: 12px;
-		color: #333133;
-		letter-spacing: -1px;
-	}
-
 	:global(p) {
 		font-family: 'Outfit', sans-serif;
 		font-size: 19px;
@@ -74,5 +70,24 @@
 		font-family: 'Radley, sans-serif';
 		font-weight: 400;
 		font-style: italic;
+	}
+
+	@media (max-width: 480px) {
+		:global(h1) {
+			font-size: 46px;
+		}
+
+		:global(h2) {
+			font-size: 38px;
+		}
+
+		:global(h3) {
+			font-weight: 400;
+			font-size: 24px;
+		}
+
+		:global(p) {
+			font-size: 17px;
+		}
 	}
 </style>

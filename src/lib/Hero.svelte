@@ -138,9 +138,9 @@
 	}
 </script>
 
-<section class="max-h-screen flex items-center relative z-10 mb-[215px]">
+<section class="max-h-screen flex items-center relative z-10 md:mb-[215px] mb-24">
 	<div class="absolute bg-[#faf5f0] z-[-1] min-h-[780px] w-full"></div>
-	<div class="container mx-auto px-4 lg:mt-[calc(160px-3rem)] md:mt-[calc(180px-3rem)]">
+	<div class="container mx-auto md:px-4 lg:mt-[calc(160px-3rem)] md:mt-[calc(180px-3rem)]">
 		<div class="flex flex-col lg:flex-row items-center justify-center p-5">
 			<!-- Image decorations -->
 			<div class="container absolute top-40 left-5 w-full h-auto">
@@ -154,7 +154,7 @@
 					<img
 						src="{base}/images/shape-1.png"
 						alt="Decorative dots"
-						class="absolute transition-all duration-300 ease-in-out"
+						class="absolute transition-all duration-300 ease-in-out -z-10 md:block hidden"
 						class:opacity-0={!isVisible}
 						class:opacity-100={isVisible}
 						class:translate-y-10={!isVisible}
@@ -164,20 +164,21 @@
 			</div>
 
 			<!-- Left Column -->
-			<div class="w-full lg:w-1/2 mr-5 mb-10 lg:mb-0 text-center lg:text-left">
+			<div class="w-full lg:w-1/2 md:mr-5 mb-16 lg:mb-0 text-center lg:text-left z-10">
 				<div
 					class="transition-opacity duration-300 ease-in-out"
 					class:opacity-0={!isVisible}
 					class:opacity-100={isVisible}
 				>
-					<p class="font-radley font-[#989898] mb-10 text-2xl">
-						Expert Care with Dr. Avirup Majumder
+					<p class="font-radley text-[#989898] md:mb-10 mb-2 text-xl md:text-2xl mt-28 md:mt-0">
+						Expert Care with Dr. Avirup
 					</p>
-					<h1 class="text-4xl md:text-5xl lg:text-[82px] mb-12">
+					<h1 class="md:text-5xl lg:text-[82px] md:mb-12 mb-6 leading-[1.07em]">
 						Modern Medicine,<br />
 						<span class="text-[#527359]">Personalized</span>
 					</h1>
-					<p class="mb-12 max-w-xl mx-auto lg:mx-0">
+
+					<p class="md:mb-12 mb-8 max-w-xl mx-auto lg:mx-0">
 						Uncover the root cause to unlock your health. It's more achievable than you think. Let's
 						embark on this journey together.
 					</p>
@@ -195,7 +196,7 @@
 				<div
 					bind:this={imageContainer}
 					on:mousemove={handleMouseMove}
-					class="transition-all duration-300 ease-in-out transform aspect-square relative overflow-hidden rounded-tl-[40%] rounded-br-[40%]"
+					class="transition-all duration-300 ease-in-out transform aspect-square relative overflow-hidden rounded-tl-[40%] rounded-br-[40%] shadow-xl"
 					class:translate-y-10={!isVisible}
 					class:translate-y-0={isVisible}
 					style="transform: translate({$containerPosition.x}px, {$containerPosition.y}px)"
@@ -210,13 +211,13 @@
 					bind:this={shapeElement}
 					src="{base}/images/shape-2.png"
 					alt="Decorative shape"
-					class="shape-2 absolute translate-y-5 lg:max-w-[615px]"
+					class="shape-2 absolute lg:translate-y-5 lg:max-w-[615px]"
 					style="transform: translate({$shapePosition.x}px, {$shapePosition.y}px)"
 				/>
 				<img
 					src="{base}/images/home-back-10.png"
 					alt="Decorative dots"
-					class="absolute top-10 right-10 w-16 h-auto transition-all duration-300 ease-in-out"
+					class="absolute top-10 right-10 w-16 h-auto transition-all duration-300 md:block hidden ease-in-out"
 					class:opacity-0={!isVisible}
 					class:opacity-100={isVisible}
 					class:translate-y-10={!isVisible}
@@ -227,30 +228,18 @@
 	</div>
 </section>
 
-<!-- Scroll to top button -->
-<button
-	class="fixed bottom-4 right-4 bg-[#527359] text-white p-2 rounded-full hover:bg-[#333133] transition-colors duration-300 z-50"
->
-	<svg
-		class="w-6 h-6"
-		fill="none"
-		stroke="currentColor"
-		viewBox="0 0 24 24"
-		xmlns="http://www.w3.org/2000/svg"
-	>
-		<path
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			stroke-width="2"
-			d="M5 10l7-7m0 0l7 7m-7-7v18"
-		></path>
-	</svg>
-</button>
-
 <style>
 	.shape-2 {
 		right: -25%;
 		bottom: -10%;
 		z-index: -1;
+	}
+
+	@media (max-width: 480px) {
+		.shape-2 {
+			right: -10%;
+			top: -5%;
+			width: 60%;
+		}
 	}
 </style>

@@ -38,13 +38,13 @@
 	];
 </script>
 
-<section class="py-16 px-4 mt-48 mb-16 relative">
-	<div class="container max-w-[70vw] mx-auto">
-		<h2 class="mb-24 text-center">
+<section class="md:py-16 px-4 md:mt-48  mb-16 relative">
+	<div class="container md:max-w-[70vw] mx-auto">
+		<h2 class="md:mb-24 mb-10 text-center">
 			Success Stories & <span class="text-[#88abda]">Testimonials</span>
 		</h2>
 
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12">
 			{#each testimonials as testimonial, index}
 				{#if isVisible}
 					<div
@@ -71,7 +71,7 @@
 			in:fade
 			src="{base}/images/home-back-3.png"
 			alt="Decorative shape"
-			class="absolute bottom-0 w-28 right-20"
+			class="absolute bottom-0 w-28 right-20 hidden md:block"
 		/>
 	{/if}
 </section>

@@ -24,10 +24,10 @@
 
 <section class="my-24 mx-auto">
 	<div class="container mx-auto">
-		<div class="max-w-7xl mx-auto bg-[#ec9f57] rounded-[80px] shadow-lg overflow-hidden">
+		<div class="max-w-[90vw] md:max-w-7xl mx-auto bg-[#ec9f57] rounded-[80px] shadow-lg overflow-hidden">
 			{#if isVisible}
-				<div in:fly={{ y: 50, duration: 1000 }} class="p-8 my-12 mx-auto w-4/6 text-center">
-					<h3 class="text-white mb-12">
+				<div in:fly={{ y: 50, duration: 1000 }} class="md:p-8 py-4 my-12 mx-auto w-4/6 text-center">
+					<h3 class="text-white md:mb-12 mb-8">
 						None of these are your actual problem. Let's figure out what's really causing them.
 					</h3>
 					<a

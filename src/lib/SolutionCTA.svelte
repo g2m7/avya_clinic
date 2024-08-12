@@ -55,19 +55,15 @@
 	<img
 		src="{base}/images/home-back-9.png"
 		alt="Decorative element"
-		class="absolute bottom-0 left-0 w-48"
+		class="absolute bottom-0 left-0 md:w-48 w-20"
 	/>
 
 	<img
 		src="{base}/images/home-back-6.png"
 		alt="Decorative element"
-		class="absolute bottom-10 left-20 w-24"
+		class="absolute bottom-8 left-10 md:w-24 w-12"
 		style="transform: rotate({rotation}deg)"
 	/>
 
-	<img src="{base}/images/home-back-8.png" alt="Decorative element" class="absolute top-0 right-0 w-96" />
+	<img src="{base}/images/home-back-8.png" alt="Decorative element" class="absolute top-0 right-0 md:w-96 w-20" />
 </section>
-
-<style>
-	/* Add any additional styles here */
-</style>

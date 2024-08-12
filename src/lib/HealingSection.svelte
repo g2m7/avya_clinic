@@ -4,13 +4,21 @@
 	import { fly } from 'svelte/transition';
 
 	let isVisible = false;
+	const listImageUrl = `${base}/icons/approved_icon.svg`;
+	const listItems = [
+		'You often feel tired, fatigued, and run down during your day, even without obvious cause.',
+		'You try to eat a balanced diet, but still struggle with weight, blood sugar, or cholesterol levels.',
+		'You have chronic symptoms like digestive issues, unexplained pain, frequent infections, or mood changes.',
+		"You're juggling work, family, and health concerns, and need practical ways to improve your overall well-being.",
+		'You want a thorough yet efficient approach to diagnosis and treatment, with a focus on lasting results.'
+	];
 
 	onMount(() => {
 		isVisible = true;
 	});
 </script>
 
-<section class="flex flex-col md:flex-row w-full h-[95vh]">
+<section class="flex flex-col md:flex-row w-full md:h-[95vh]">
 	<!-- Left column (image) -->
 	<div class="w-full md:w-1/2 h-full">
 		<img
@@ -22,31 +30,25 @@
 
 	<!-- Right column (content) -->
 	<div
-		class="w-full md:w-1/2 bg-[#527359] text-white p-8 md:p-12 flex items-center overflow-y-auto"
+		class="w-full md:w-1/2 bg-[#527359] text-white px-8 py-12 md:p-12 flex items-center overflow-y-auto"
 	>
-		<div class="max-w-md mx-auto">
+		<div class="max-w-xl mx-auto">
 			{#if isVisible}
 				<div in:fly={{ y: 50, duration: 1000 }} class="text-left">
-					<h4 class="text-xl font-light text-[#88abda] mb-6">
-						Do you suffer from one or more of the following?
+					<h4 class="text-6xl font-light text-white mb-6 hidden mb:block">
+						<span class="text-[#88abda]">Do you suffer </span>from one or more of the following?
 					</h4>
+					<h2 class="font-light text-white mb-6 mb:hidden">
+						<span class="text-[#88abda]">Do you suffer </span>from one or more of the following?
+					</h2>
 					<ul class="space-y-4">
-						{#each ['You often feel tired, fatigued, and run down during your day, even without obvious cause.', 'You try to eat a balanced diet, but still struggle with weight, blood sugar, or cholesterol levels.', 'You have chronic symptoms like digestive issues, unexplained pain, frequent infections, or mood changes.', "You're juggling work, family, and health concerns, and need practical ways to improve your overall well-being.", 'You want a thorough yet efficient approach to diagnosis and treatment, with a focus on lasting results.'] as item}
+						{#each listItems as item}
 							<li class="flex items-start">
-								<svg
-									class="w-5 h-5 text-[#BED173] mr-2 mt-1 flex-shrink-0"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M5 13l4 4L19 7"
-									></path>
-								</svg>
+								<img
+									src={listImageUrl}
+									alt="Bullet point"
+									class="w-10 h-10 mr-2 mt-1 flex-shrink-0"
+								/>
 								<span>{item}</span>
 							</li>
 						{/each}
