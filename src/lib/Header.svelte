@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Testimonials from './Testimonials.svelte';
 	import { base } from '$app/paths';
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
@@ -45,68 +46,82 @@
 			<!-- Navigation Links -->
 			<div class="hidden md:flex space-x-8">
 				<a
-					href=""
+					href="#about"
 					class="text-[#5a595a] text-lg font-normal hover:text-[#989898] transition-colors nav-link"
-					>Demos</a
+					>About</a
 				>
 				<a
-					href=""
+					href="#services"
 					class="text-[#5a595a] text-lg font-normal hover:text-[#989898] transition-colors nav-link"
-					>Features</a
+					>Services</a
 				>
 				<a
-					href=""
+					href="#testimonials"
 					class="text-[#5a595a] text-lg font-normal hover:text-[#989898] transition-colors nav-link"
-					>Post Types</a
-				>
-				<a
-					href=""
-					class="text-[#5a595a] text-lg font-normal hover:text-[#989898] transition-colors nav-link"
-					>Layouts</a
-				>
-				<a
-					href=""
-					class="text-[#5a595a] text-lg font-normal hover:text-[#989898] transition-colors nav-link"
-					>Plugins</a
+					>Testimonials</a
 				>
 			</div>
 
 			<!-- CTA Button -->
 			<div class="hidden md:block">
 				<a
-					href=""
+					href="#contact"
 					target="_blank"
 					class="inline-flex items-center px-7 py-3 bg-[#BED173] text-white text-lg font-bold rounded-md hover:bg-[#ec9f57] transition-colors duration-300"
 				>
-					Book Now
+					Contact us
 				</a>
 			</div>
 
 			<!-- Mobile menu button -->
-			<div class="md:hidden bg-[#BED173] hover:bg-white p-1 rounded-full">
+			<div
+				class="md:hidden p-1 rounded-full"
+				class:bg-white={isOffcanvasOpen}
+				class:bg-[#BED173]={!isOffcanvasOpen}
+			>
 				<button
 					on:click={toggleOffcanvas}
 					type="button"
-					class="inline-flex items-center justify-center p-2 rounded-md text-white md:hover:text-[#BED173] hover:bg-white/10 transition-colors duration-300"
+					class="inline-flex items-center justify-center p-2 rounded-md md:hover:text-[#BED173] hover:bg-white/10 transition-colors duration-300"
 					aria-controls="mobile-menu"
 					aria-expanded="false"
+					class:text-red-500={isOffcanvasOpen}
+					class:text-white={!isOffcanvasOpen}
 				>
 					<span class="sr-only">Open main menu</span>
-					<svg
-						class="h-6 w-6"
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-						aria-hidden="true"
-					>
-						<path
+					{#if !isOffcanvasOpen}
+						<svg
+							class="h-6 w-6"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							aria-hidden="true"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M4 6h16M4 12h16M4 18h16"
+							/>
+						</svg>
+					{/if}
+					{#if isOffcanvasOpen}
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
 							stroke-linecap="round"
 							stroke-linejoin="round"
-							stroke-width="2"
-							d="M4 6h16M4 12h16M4 18h16"
-						/>
-					</svg>
+						>
+							<line x1="18" y1="6" x2="6" y2="18"></line>
+							<line x1="6" y1="6" x2="18" y2="18"></line>
+						</svg>
+					{/if}
 				</button>
 			</div>
 		</div>
@@ -117,29 +132,24 @@
 		<div class="md:hidden" id="mobile-menu">
 			<div class="px-2 pt-2 pb-3 space-y-1 bg-white">
 				<a
-					href=""
+					href="#about"
 					class="block px-4 py-2 text-[#333133] text-base font-normal hover:text-[#BED173] hover:bg-[#FAF5F0]"
-					>Demos</a
+					>About</a
 				>
 				<a
-					href=""
+					href="#services"
 					class="block px-4 py-2 text-[#333133] text-base font-normal hover:text-[#BED173] hover:bg-[#FAF5F0]"
-					>Features</a
+					>Services</a
 				>
 				<a
-					href=""
+					href="#testimonials"
 					class="block px-4 py-2 text-[#333133] text-base font-normal hover:text-[#BED173] hover:bg-[#FAF5F0]"
-					>Post Types</a
+					>Testimonials</a
 				>
 				<a
-					href=""
+					href="#contac"
 					class="block px-4 py-2 text-[#333133] text-base font-normal hover:text-[#BED173] hover:bg-[#FAF5F0]"
-					>Layouts</a
-				>
-				<a
-					href=""
-					class="block px-4 py-2 text-[#333133] text-base font-normal hover:text-[#BED173] hover:bg-[#FAF5F0]"
-					>Plugins</a
+					>Contact us</a
 				>
 			</div>
 		</div>
@@ -147,25 +157,29 @@
 </header>
 
 <!-- Scroll to top button -->
-<button
-	on:click={scrollToTop}
-	class="fixed bottom-4 right-4 bg-[#527359] text-white p-2 rounded-full hover:bg-[#333133] transition-colors duration-300"
->
-	<svg
-		class="w-6 h-6"
-		fill="none"
-		stroke="currentColor"
-		viewBox="0 0 24 24"
-		xmlns="http://www.w3.org/2000/svg"
+{#if showButton}
+	<button
+		on:click={scrollToTop}
+		class="fixed bottom-4 right-4 bg-[#527359] text-white z-20 p-2 rounded-full hover:bg-[#333133] transition-colors duration-300"
+		transition:fade
+		aria-label="Scroll to top"
 	>
-		<path
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			stroke-width="2"
-			d="M5 10l7-7m0 0l7 7m-7-7v18"
-		></path>
-	</svg>
-</button>
+		<svg
+			class="w-6 h-6"
+			fill="none"
+			stroke="currentColor"
+			viewBox="0 0 24 24"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+				d="M5 10l7-7m0 0l7 7m-7-7v18"
+			></path>
+		</svg>
+	</button>
+{/if}
 
 <style>
 	.nav-link {

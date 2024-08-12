@@ -1,7 +1,14 @@
-<script>
+<script lang="ts">
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
+	import { scrollTo } from '$lib/actions/scrollTo';
+
+	interface $$Props {
+		id: string;
+	}
+
+	export let id: $$Props['id'];
 
 	let isVisible = false;
 	const listImageUrl = `${base}/icons/approved_icon.svg`;
@@ -18,7 +25,7 @@
 	});
 </script>
 
-<section class="flex flex-col md:flex-row w-full md:h-[95vh]">
+<section class="flex flex-col md:flex-row w-full md:h-[95vh]" {id} use:scrollTo>
 	<!-- Left column (image) -->
 	<div class="w-full md:w-1/2 h-full">
 		<img
@@ -57,4 +64,5 @@
 			{/if}
 		</div>
 	</div>
+	<slot></slot>
 </section>

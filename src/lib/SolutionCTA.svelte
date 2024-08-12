@@ -38,8 +38,7 @@
 				<h2 class="mb-4">There is a Solution.</h2>
 				<h2 class="text-[#ec9f57] mb-8">Take the First Step</h2>
 				<p class="mb-8 max-w-xl mx-auto">
-					Solve the root causes of your health issues. Services are provided virtually via phone or
-					internet.
+					Solve the root causes of your health issues. Services are provided in-person in Avyaa clinic.
 				</p>
 				<a
 					href=""

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import HealingSection from './../lib/HealingSection.svelte';
 	import '../app.css';
 	import Section2 from './../lib/Section2.svelte';
@@ -8,20 +8,20 @@
 	import HealingCTA from '$lib/HealingCTA.svelte';
 	import Testimonials from '$lib/Testimonials.svelte';
 	import SolutionCta from '$lib/SolutionCTA.svelte';
-	import SocialLinks from '$lib/SocialLinks.svelte';
+	import Contact from '$lib/Contact.svelte';
 	import Footer from '$lib/Footer.svelte';
 </script>
 
 <Header />
 <Hero />
-<Section2 />
+<Section2 id="about"/>
 <Section3 />
-<HealingSection />
+<HealingSection id="services"/>
 <HealingCTA />
-<Testimonials />
+<Testimonials  id="testimonials"/>
 <SolutionCta />
-<SocialLinks />
-<Footer />
+<Contact />
+<Footer id="contact"/>
 
 <slot />
 

@@ -1,6 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
+	import { scrollTo } from '$lib/actions/scrollTo';
+
+	interface $$Props {
+		id: string;
+	}
+
+	export let id: $$Props['id'];
 
 	let isVisible = false;
 
@@ -9,7 +16,7 @@
 	});
 </script>
 
-<section class="md:mt-8 md:mb-8 py-16 md:px-4 ">
+<section class="md:mt-8 md:mb-8 py-16 md:px-4" {id} use:scrollTo>
 	<div class="container mx-auto md:max-w-[700px] w-[90vw]">
 		<div class="text-center">
 			{#if isVisible}
@@ -26,4 +33,5 @@
 			{/if}
 		</div>
 	</div>
+	<slot></slot>
 </section>
