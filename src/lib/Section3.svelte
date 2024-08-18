@@ -10,7 +10,7 @@
 	});
 </script>
 
-<section class="py-16 md:px-4 md:mb-24 mb-12">
+<section class="py-16 md:px-4">
 	<div class="container md:w-[70%] w-[90vw] mx-auto max-w-7xl">
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-0 border rounded-2xl">
 			{#if isVisible}

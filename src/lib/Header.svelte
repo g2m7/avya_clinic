@@ -40,7 +40,9 @@
 		<div class="flex justify-between items-center h-16">
 			<!-- Logo Area -->
 			<div class="flex-shrink-0">
-				<img src="{base}/images/logo.jpeg" alt="The Practitioner" class="w-32" />
+				<a href="https://aavyamediclinic.com/">
+					<img src="{base}/images/logo.jpeg" alt="The Practitioner" class="w-32" /></a
+				>
 			</div>
 
 			<!-- Navigation Links -->
@@ -60,12 +62,18 @@
 					class="text-[#5a595a] text-lg font-normal hover:text-[#989898] transition-colors nav-link"
 					>Testimonials</a
 				>
+
+				<a
+					href="#contact"
+					class="text-[#5a595a] text-lg font-normal hover:text-[#989898] transition-colors nav-link"
+					>Contact Us</a
+				>
 			</div>
 
 			<!-- CTA Button -->
 			<div class="hidden md:block">
 				<a
-					href="#contact"
+					href="#form"
 					target="_blank"
 					class="inline-flex items-center px-7 py-3 bg-[#BED173] text-white text-lg font-bold rounded-md hover:bg-[#ec9f57] transition-colors duration-300"
 				>
@@ -147,7 +155,7 @@
 					>Testimonials</a
 				>
 				<a
-					href="#contac"
+					href="#contact"
 					class="block px-4 py-2 text-[#333133] text-base font-normal hover:text-[#BED173] hover:bg-[#FAF5F0]"
 					>Contact us</a
 				>
@@ -160,7 +168,7 @@
 {#if showButton}
 	<button
 		on:click={scrollToTop}
-		class="fixed bottom-4 right-4 bg-[#527359] text-white z-20 p-2 rounded-full hover:bg-[#333133] transition-colors duration-300"
+		class="fixed bottom-4 right-4 bg-[#88abda] text-white z-20 p-4 rounded-full hover:bg-[#333133] transition-colors duration-300"
 		transition:fade
 		aria-label="Scroll to top"
 	>

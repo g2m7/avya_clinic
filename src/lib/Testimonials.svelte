@@ -45,7 +45,7 @@
 	];
 </script>
 
-<section class="md:py-16 px-4 md:mt-48 mb-16 relative" {id} use:scrollTo>
+<section class="md:py-16 px-4 md:mt-24 mb-16 relative" {id} use:scrollTo>
 	<div class="container md:max-w-[70vw] mx-auto">
 		<h2 class="md:mb-24 mb-10 text-center">
 			Success Stories & <span class="text-[#88abda]">Testimonials</span>

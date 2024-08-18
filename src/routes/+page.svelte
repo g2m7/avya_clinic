@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Services from './../lib/Services.svelte';
 	import HealingSection from './../lib/HealingSection.svelte';
 	import '../app.css';
 	import Section2 from './../lib/Section2.svelte';
@@ -10,18 +11,30 @@
 	import SolutionCta from '$lib/SolutionCTA.svelte';
 	import Contact from '$lib/Contact.svelte';
 	import Footer from '$lib/Footer.svelte';
+	import Section4 from '$lib/Section4.svelte';
+	import { page } from '$app/stores';
 </script>
+
+<svelte:head>
+	<title>{$page.data.title || 'Aavya Mediclinic'}</title>
+	<meta
+		name="description"
+		content={$page.data.metaDescription ||
+			'Aavya Mediclinic in Siliguri offers expert medical consultation by Dr. Avirup Majumdar, MD. Specializing in diabetes, thyroid, hypertension, and general medicine. Quality care with diagnostic services available. Call 7047812650 for appointments.'}
+	/>
+</svelte:head>
 
 <Header />
 <Hero />
-<Section2 id="about"/>
+<Section2 id="about" />
 <Section3 />
-<HealingSection id="services"/>
-<HealingCTA />
-<Testimonials  id="testimonials"/>
+<Section4 />
+<HealingSection/>
+<Services id="services" />
 <SolutionCta />
-<Contact />
-<Footer id="contact"/>
+<Testimonials id="testimonials" />
+<Contact id="form"/>
+<Footer  id="contact"/>
 
 <slot />
 

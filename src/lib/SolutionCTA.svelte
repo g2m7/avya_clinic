@@ -42,9 +42,9 @@
 				</p>
 				<a
 					href=""
-					class="inline-block px-8 py-3 bg-[#BED173] text-white rounded-md hover:bg-[#a7c14e] transition duration-300"
+					class="text-lg inline-block px-8 py-3 bg-[#BED173] text-white rounded-md hover:bg-[#a7c14e] transition duration-300"
 				>
-					Book a Consultation
+					Enquire for a Consultation
 				</a>
 			</div>
 		{/if}

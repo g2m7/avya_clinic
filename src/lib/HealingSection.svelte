@@ -2,13 +2,6 @@
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { scrollTo } from '$lib/actions/scrollTo';
-
-	interface $$Props {
-		id: string;
-	}
-
-	export let id: $$Props['id'];
 
 	let isVisible = false;
 	const listImageUrl = `${base}/icons/approved_icon.svg`;
@@ -25,11 +18,11 @@
 	});
 </script>
 
-<section class="flex flex-col md:flex-row w-full md:h-[95vh]" {id} use:scrollTo>
+<section class="flex flex-col md:flex-row w-full md:h-[95vh]">
 	<!-- Left column (image) -->
 	<div class="w-full md:w-1/2 h-full">
 		<img
-			src="{base}/images/healing-section.jpg"
+			src="{base}/images/healing-section.webp"
 			alt="Background"
 			class="w-full h-full object-cover"
 		/>
@@ -37,7 +30,7 @@
 
 	<!-- Right column (content) -->
 	<div
-		class="w-full md:w-1/2 bg-[#527359] text-white px-8 py-12 md:p-12 flex items-center overflow-y-auto"
+		class="w-full md:w-1/2 bg-[#527359] text-white px-8 py-12 md:p-12 flex text-xl items-center overflow-y-auto"
 	>
 		<div class="max-w-xl mx-auto">
 			{#if isVisible}

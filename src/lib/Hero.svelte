@@ -183,7 +183,7 @@
 						embark on this journey together.
 					</p>
 					<a
-						href=""
+						href="#form"
 						class="inline-block bg-[#BED173] text-lg text-white font-medium py-4 px-11 rounded-md hover:bg-[#527359] transition duration-300 ease-in-out"
 					>
 						Start Here
@@ -194,6 +194,7 @@
 			<!-- Right Column -->
 			<div class="w-full lg:w-1/2 relative mb-[-60px]">
 				<div
+					aria-readonly="true"
 					bind:this={imageContainer}
 					on:mousemove={handleMouseMove}
 					class="transition-all duration-300 ease-in-out transform aspect-square relative overflow-hidden rounded-tl-[40%] rounded-br-[40%] shadow-xl"
@@ -202,7 +203,7 @@
 					style="transform: translate({$containerPosition.x}px, {$containerPosition.y}px)"
 				>
 					<img
-						src="{base}/images/hero2.jpg"
+						src="{base}/images/hero2.webp"
 						alt="Dr. Avirup"
 						class="absolute w-full h-full object-cover object-center"
 					/>
