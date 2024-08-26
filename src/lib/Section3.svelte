@@ -55,7 +55,7 @@
 					<div class="mb-4">
 						<img src="{base}/images/section3/third_icon.svg" alt="third_icon" />
 					</div>
-					<h5 class="text-xl font-semibold mb-2">Client-Focused</h5>
+					<h5 class="text-xl font-semibold mb-2">Patient-Focused</h5>
 					<p class="text-gray-600">
 						Committed to serving his community, Dr. Majumder practices in Siliguri, specializing in
 						general medicine and diabetology. His affiliations with multiple hospitals ensure

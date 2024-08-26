@@ -39,9 +39,27 @@
 		`${base}/images/gallery/backdrop.webp`
 	];
 
-	function handleSubmit(event: Event) {
+	async function handleSubmit(event: Event) {
 		event.preventDefault();
-		console.log('Form submitted:', formData);
+		try {
+			const response = await fetch('/api/send-email', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(formData)
+			});
+
+			if (response.ok) {
+				alert('Enquiry sent successfully!');
+				formData = { name: '', phone: '', email: '', concern: '' };
+			} else {
+				alert('Failed to send enquiry. Please try again.');
+			}
+		} catch (error) {
+			console.error('Error:', error);
+			alert('An error occurred. Please try again.');
+		}
 	}
 
 	onMount(async () => {
