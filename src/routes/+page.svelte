@@ -1,18 +1,17 @@
 <script lang="ts">
+	import ComingSoon from './../lib/ComingSoon.svelte';
 	import Services from './../lib/Services.svelte';
-	import HealingSection from './../lib/HealingSection.svelte';
 	import '../app.css';
 	import Section2 from './../lib/Section2.svelte';
 	import Header from '$lib/Header.svelte';
 	import Hero from '$lib/Hero.svelte';
-	import Section3 from '$lib/Section3.svelte';
-	import HealingCTA from '$lib/HealingCTA.svelte';
 	import Testimonials from '$lib/Testimonials.svelte';
 	import SolutionCta from '$lib/SolutionCTA.svelte';
-	import Contact from '$lib/Contact.svelte';
+	import Socials from '$lib/Socials.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import Section4 from '$lib/Section4.svelte';
 	import { page } from '$app/stores';
+	
 </script>
 
 <svelte:head>
@@ -24,17 +23,16 @@
 	/>
 </svelte:head>
 
+<!-- <ComingSoon /> -->
 <Header />
 <Hero />
 <Section2 id="about" />
-<Section3 />
 <Section4 />
-<HealingSection/>
 <Services id="services" />
 <SolutionCta />
 <Testimonials id="testimonials" />
-<Contact id="form"/>
-<Footer  id="contact"/>
+<Socials id="socials" />
+<Footer id="contact" />
 
 <slot />
 

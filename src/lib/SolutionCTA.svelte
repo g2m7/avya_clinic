@@ -31,20 +31,23 @@
 	});
 </script>
 
-<section class="bg-[#faf5f0] py-24 px-4 relative overflow-hidden">
-	<div class="container mx-auto max-w-3xl text-center relative z-10">
+<section class="bg-[#faf5f0] py-24 px-4 mb-24 relative overflow-hidden">
+	<div class="container mx-auto max-w-3/4 text-center relative z-10">
 		{#if isVisible}
 			<div in:fly={{ y: 50, duration: 1000 }}>
-				<h2 class="mb-4">There is a Solution.</h2>
-				<h2 class="text-[#ec9f57] mb-8">Take the First Step</h2>
-				<p class="mb-8 max-w-xl mx-auto">
-					Solve the root causes of your health issues. Services are provided in-person in Avyaa clinic.
+				<h2 class="mb-4">Diagnostic services</h2>
+				<h2 class="text-[#ec9f57] mb-8">All pathological tests are done here</h2>
+				<p class="text-[24px] max-w-xl mx-auto">Home collection facilities are also available.</p>
+				<p class="text-[24px] mb-8 max-w-xl mx-auto">
+					For appointment contact <span class="text-[#88abda] font-[500]"
+						>&nbsp; +91 70478 12650</span
+					>
 				</p>
 				<a
-					href=""
+					href="tel:70478-12650"
 					class="text-lg inline-block px-8 py-3 bg-[#BED173] text-white rounded-md hover:bg-[#a7c14e] transition duration-300"
 				>
-					Enquire for a Consultation
+					Call Now!
 				</a>
 			</div>
 		{/if}
@@ -64,5 +67,9 @@
 		style="transform: rotate({rotation}deg)"
 	/>
 
-	<img src="{base}/images/home-back-8.png" alt="Decorative element" class="absolute top-0 right-0 md:w-96 w-20" />
+	<img
+		src="{base}/images/home-back-8.png"
+		alt="Decorative element"
+		class="absolute top-0 right-0 md:w-96 w-20"
+	/>
 </section>

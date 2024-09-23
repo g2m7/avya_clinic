@@ -19,28 +19,23 @@
 	const testimonials = [
 		{
 			text: `Dr. Majumdar is a wonderful physician. My mother and I regularly visit him for our routine check-ups. We are really satisfied with his medication. By the help of his valuable advices and prescribed medication, we've been successfully able to maintain the normal range of hypertension and diabetes since long. The best thing about him is he treats the patients with minimum amount of medicines, actually required. He's quite amicable in nature. We can discuss all our health issues freely with him and he listens to them with ample patience. He's such a helpful human being adorned with gentle behavior. Thank you doctor!`,
-			author: 'Mrs. Smaranika Roy',
-			image: '/images/quote-1.jpg'
+			author: 'Mrs. Smaranika Roy'
 		},
 		{
 			text: `Dr. Avirup Majumdar has provided excellent care for both my mother and me. His expertise and compassion have made a significant difference in our health journey. If you are looking for someone who genuinely cares about his patients' well-being and delivers results, Dr. Avirup Majumdar is the one. Highly recommended.`,
-			author: 'Miss Unnayana Ganguly',
-			image: '/images/quote-2.jpg'
+			author: 'Miss Unnayana Ganguly'
 		},
 		{
 			text: `I suffering from diabetes from 8 years. But my sugar level was not good. But when I visited this doctor right now my sugar level is under controlled and doctor behaviour, know the patient problem and environment level of this chamber are also good. As a physician this doctor is perfect as my side`,
-			author: 'Mr. Jayanta Das',
-			image: '/images/quote-3.jpg'
+			author: 'Mr. Jayanta Das'
 		},
 		{
 			text: `He is the best MD doctor in Siliguri. I will must recommend him as he young and talented doctor in Siliguri.`,
-			author: 'Mr. Prithwish Banerjee',
-			image: '/images/quote-3.jpg'
+			author: 'Mr. Prithwish Banerjee'
 		},
 		{
 			text: `One of the best Medicine MD in Siliguri `,
-			author: 'Mr. Jagat Kiran Sarkar',
-			image: '/images/quote-3.jpg'
+			author: 'Mr. Jagat Kiran Sarkar'
 		}
 	];
 </script>
@@ -60,11 +55,6 @@
 					>
 						<p class="mb-8 text-xl">{testimonial.text}</p>
 						<div class="flex items-center">
-							<img
-								src={testimonial.image}
-								alt={testimonial.author}
-								class="w-12 h-12 rounded-full mr-4"
-							/>
 							<span class="text-xl">{testimonial.author}</span>
 						</div>
 					</div>
@@ -81,6 +71,6 @@
 			class="absolute bottom-0 w-28 right-20 hidden md:block"
 		/>
 	{/if}
-	
+
 	<slot></slot>
 </section>

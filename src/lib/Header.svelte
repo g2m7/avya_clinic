@@ -41,7 +41,14 @@
 			<!-- Logo Area -->
 			<div class="flex-shrink-0">
 				<a href="https://aavyamediclinic.com/">
-					<img src="{base}/images/logo.jpeg" alt="The Practitioner" class="w-32" /></a
+					<img
+						src="{base}/images/logo.jpeg"
+						alt="The Practitioner"
+						class="w-32 md:invisible visible md:w-0 md:mt-0 mt-12"
+					/></a
+				>
+				<a href="https://aavyamediclinic.com/">
+					<p class="text-[24px] md:visible invisible font-[500] text-[#1a279c]">Aavya Mediclinic</p></a
 				>
 			</div>
 
@@ -71,7 +78,7 @@
 			</div>
 
 			<!-- CTA Button -->
-			<div class="hidden md:block">
+			<!-- <div class="hidden md:block">
 				<a
 					href="#form"
 					target="_blank"
@@ -79,7 +86,7 @@
 				>
 					Contact us
 				</a>
-			</div>
+			</div> -->
 
 			<!-- Mobile menu button -->
 			<div

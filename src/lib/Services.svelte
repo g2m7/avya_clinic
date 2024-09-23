@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
 	import { scrollTo } from '$lib/actions/scrollTo';
+	import { fade } from 'svelte/transition';
 
 	interface $$Props {
 		id: string;
@@ -44,14 +45,20 @@
 			image: '/images/services/autoimune.webp'
 		}
 	];
+	const additional_services = [
+		'Other medical conditions',
+		'Diagnostic services – All pathological tests are done here',
+		'Home collection facilities are available',
+		'Periodic free health camps'
+	];
 </script>
 
 <section class="md:py-16 px-4 mt-24 mb-16 relative" {id} use:scrollTo>
 	<div class="container md:max-w-[70vw] w-full mx-auto">
 		<div class="container w-full text-center">
-			<h2 class="text-[#88abda] mb-10">Services</h2>
+			<h2 class="text-[#88abda] mb-10">We Provide</h2>
 			<h3 class="md:mb-24 mb-10">
-				Medical consultation is provided (by Dr. Avirup) for the following ailments
+				Medical consultation is provided (by Dr. Avirup) for the following ailments :
 			</h3>
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-16 gap-8">

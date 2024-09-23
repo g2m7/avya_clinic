@@ -164,7 +164,7 @@
 			</div>
 
 			<!-- Left Column -->
-			<div class="w-full lg:w-1/2 md:mr-5 mb-16 lg:mb-0 text-center lg:text-left z-10">
+			<!-- <div class="w-full lg:w-1/2 md:mr-5 mb-16 lg:mb-0 text-center lg:text-left z-10">
 				<div
 					class="transition-opacity duration-300 ease-in-out"
 					class:opacity-0={!isVisible}
@@ -189,21 +189,44 @@
 						Start Here
 					</a>
 				</div>
+			</div> -->
+
+			<div class="w-full lg:w-1/2 md:pl-24 md:mr-5 mb-16 lg:mb-0 text-center lg:text-left z-10">
+				<div
+					class="transition-opacity duration-300 ease-in-out"
+					class:opacity-0={!isVisible}
+					class:opacity-100={isVisible}
+				>
+					<img src="{base}/images/logo.jpeg" class="w-1/2 mb-6" alt="" />
+					<h2 class="md:text-3xl lg:text-4xl md:mb-6 mb-4">
+					
+						 Dr. Avirup Majumdar
+					</h2>
+					<p class="md:mb-4 mb-2">MBBS, MD( General Medicine)(KGMU Lucknow)</p>
+					<p class="md:mb-4 mb-2">CCEBDM (Diabetology)</p>
+					<p class="md:mb-8 mb-0">Reg No- 72871 (West Bengal Medical Council)</p>
+					<a
+						href="#contact"
+						class="hidden sm:inline-block bg-[#BED173] text-lg text-white font-medium py-4 px-11 rounded-md hover:bg-[#527359] transition duration-300 ease-in-out"
+					>
+						Contact Us
+					</a>
+				</div>
 			</div>
 
 			<!-- Right Column -->
 			<div class="w-full lg:w-1/2 relative mb-[-60px]">
 				<div
-					aria-readonly="true"
 					bind:this={imageContainer}
 					on:mousemove={handleMouseMove}
 					class="transition-all duration-300 ease-in-out transform aspect-square relative overflow-hidden rounded-tl-[40%] rounded-br-[40%] shadow-xl"
 					class:translate-y-10={!isVisible}
 					class:translate-y-0={isVisible}
 					style="transform: translate({$containerPosition.x}px, {$containerPosition.y}px)"
+					role="img"
 				>
 					<img
-						src="{base}/images/hero2.webp"
+						src="{base}/images/doctor.webp"
 						alt="Dr. Avirup"
 						class="absolute w-full h-full object-cover object-center"
 					/>
