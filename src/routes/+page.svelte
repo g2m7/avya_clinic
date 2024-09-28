@@ -6,7 +6,7 @@
 	import Hero from '$lib/Hero.svelte';
 	import Testimonials from '$lib/Testimonials.svelte';
 	import SolutionCta from '$lib/SolutionCTA.svelte';
-	import Socials from '$lib/Socials.svelte';
+	import Gallery from '$lib/Gallery.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import Section4 from '$lib/Section4.svelte';
 	import { page } from '$app/stores';
@@ -30,7 +30,7 @@
 <Services id="services" />
 <SolutionCta />
 <Testimonials id="testimonials" />
-<Socials id="socials" />
+<Gallery id="socials" />
 <Footer id="contact" />
 
 <slot />

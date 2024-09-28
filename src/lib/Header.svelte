@@ -10,6 +10,11 @@
 
 	function toggleOffcanvas() {
 		isOffcanvasOpen = !isOffcanvasOpen;
+		if (isOffcanvasOpen) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = '';
+		}
 	}
 
 	function handleScroll() {
@@ -40,20 +45,9 @@
 		<div class="flex justify-between items-center h-16">
 			<!-- Logo Area -->
 			<div class="flex-shrink-0">
-				<!-- <a href="https://aavyamediclinic.com/">
-					<img
-						src="{base}/images/logo.jpeg"
-						alt="The Practitioner"
-						class="w-32 md:invisible visible md:w-0 md:mt-0 mt-12"
-					/></a
-				> -->
-				<!-- <a href="https://aavyamediclinic.com/">
-					<p class="text-[24px] md:visible invisible font-[500] text-[#1a279c]">Aavya Mediclinic</p></a
-				> -->
-
 				<a href="https://aavyamediclinic.com/">
-					<p class="text-[24px] font-[500] text-[#1a279c]">Aavya Mediclinic</p></a
-				>
+					<p class="text-[24px] font-[500] text-[#1a279c]">Aavya Mediclinic</p>
+				</a>
 			</div>
 
 			<!-- Navigation Links -->
@@ -73,7 +67,6 @@
 					class="text-[#5a595a] text-lg font-normal hover:text-[#989898] transition-colors nav-link"
 					>Testimonials</a
 				>
-
 				<a
 					href="#contact"
 					class="text-[#5a595a] text-lg font-normal hover:text-[#989898] transition-colors nav-link"
@@ -81,33 +74,20 @@
 				>
 			</div>
 
-			<!-- CTA Button -->
-			<!-- <div class="hidden md:block">
-				<a
-					href="#form"
-					target="_blank"
-					class="inline-flex items-center px-7 py-3 bg-[#BED173] text-white text-lg font-bold rounded-md hover:bg-[#ec9f57] transition-colors duration-300"
-				>
-					Contact us
-				</a>
-			</div> -->
-
 			<!-- Mobile menu button -->
 			<div
-				class="md:hidden p-1 rounded-full"
-				class:bg-white={isOffcanvasOpen}
-				class:bg-[#BED173]={!isOffcanvasOpen}
+				class="md:hidden p-1 rounded-full z-50 bg-[#BED173]"
 			>
 				<button
 					on:click={toggleOffcanvas}
 					type="button"
 					class="inline-flex items-center justify-center p-2 rounded-md md:hover:text-[#BED173] hover:bg-white/10 transition-colors duration-300"
 					aria-controls="mobile-menu"
-					aria-expanded="false"
+					aria-expanded={isOffcanvasOpen}
 					class:text-red-500={isOffcanvasOpen}
 					class:text-white={!isOffcanvasOpen}
 				>
-					<span class="sr-only">Open main menu</span>
+					<span class="sr-only">{isOffcanvasOpen ? 'Close main menu' : 'Open main menu'}</span>
 					{#if !isOffcanvasOpen}
 						<svg
 							class="h-6 w-6"
@@ -124,8 +104,7 @@
 								d="M4 6h16M4 12h16M4 18h16"
 							/>
 						</svg>
-					{/if}
-					{#if isOffcanvasOpen}
+					{:else}
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="24"
@@ -146,28 +125,35 @@
 		</div>
 	</nav>
 
-	<!-- Mobile menu, show/hide based on menu state. -->
+	<!-- Mobile menu, fullscreen and centered -->
 	{#if isOffcanvasOpen}
-		<div class="md:hidden" id="mobile-menu">
-			<div class="px-2 pt-2 pb-3 space-y-1 bg-white">
+		<div
+			class="fixed inset-0 bg-[#BED173] z-40 flex items-center justify-center"
+			transition:fade={{ duration: 300 }}
+		>
+			<div class="text-center">
 				<a
 					href="#about"
-					class="block px-4 py-2 text-[#333133] text-base font-normal hover:text-[#BED173] hover:bg-[#FAF5F0]"
+					on:click={toggleOffcanvas}
+					class="block px-4 py-4 text-[#ffff] text-2xl font-normal hover:text-[#333133] transition-colors"
 					>About</a
 				>
 				<a
 					href="#services"
-					class="block px-4 py-2 text-[#333133] text-base font-normal hover:text-[#BED173] hover:bg-[#FAF5F0]"
+					on:click={toggleOffcanvas}
+					class="block px-4 py-4 text-[#ffff] text-2xl font-normal hover:text-[#333133] transition-colors"
 					>Services</a
 				>
 				<a
 					href="#testimonials"
-					class="block px-4 py-2 text-[#333133] text-base font-normal hover:text-[#BED173] hover:bg-[#FAF5F0]"
+					on:click={toggleOffcanvas}
+					class="block px-4 py-4 text-[#ffff] text-2xl font-normal hover:text-[#333133] transition-colors"
 					>Testimonials</a
 				>
 				<a
 					href="#contact"
-					class="block px-4 py-2 text-[#333133] text-base font-normal hover:text-[#BED173] hover:bg-[#FAF5F0]"
+					on:click={toggleOffcanvas}
+					class="block px-4 py-4 text-[#ffff] text-2xl font-normal hover:text-[#333133] transition-colors"
 					>Contact us</a
 				>
 			</div>

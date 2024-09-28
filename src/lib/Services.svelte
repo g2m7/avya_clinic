@@ -53,7 +53,7 @@
 	];
 </script>
 
-<section class="md:py-16 px-4 mt-24 mb-16 relative" {id} use:scrollTo>
+<section class="md:py-16 px-4 py-12 mb-16 relative" {id} use:scrollTo>
 	<div class="container mx-auto text-center">
 		<div class="container w-[45vw] md:mb-16 mx-auto">
 			<h3 in:fade={{ duration: 1000 }} class="mb-12 font-radley text-[#88abda] text-2xl">

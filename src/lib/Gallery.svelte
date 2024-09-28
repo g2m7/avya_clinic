@@ -22,8 +22,8 @@
 
 	const socialLinks = [
 		{ name: 'Instagram', url: 'https://www.instagram.com/', icon: 'instagram.png' },
-		{ name: 'Facebook', url: 'https://www.facebook.com/', icon: 'facebook.png' },
-		{ name: 'X', url: 'https://x.com/', icon: 'x.png' },
+		{ name: 'Facebook', url: 'https://www.facebook.com/', icon: 'facebook.png' }
+		// { name: 'X', url: 'https://x.com/', icon: 'x.png' },
 	];
 
 	function openImage(image: string) {
@@ -60,13 +60,19 @@
 							rel="noopener noreferrer"
 							class="inline-block bg-white text-[#ec9f57] font-bold py-2 px-6 rounded-full hover:bg-opacity-90 transition duration-300"
 						>
-							<img src={`${base}/icons/socials/${link.icon}`} alt={link.name} class="w-6 h-auto inline-block mr-2" />
+							<img
+								src={`${base}/icons/socials/${link.icon}`}
+								alt={link.name}
+								class="w-6 h-auto inline-block mr-2"
+							/>
 							{link.name}
 						</a>
 					{/each}
 				</div>
 			</div>
 		</div>
+		<h2 class="text-center text-white mb-6">Gallery</h2>
+
 		<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
 			{#each images as image, index}
 				<button

@@ -138,7 +138,7 @@
 	}
 </script>
 
-<section class="max-h-screen flex items-center stacking-context z-content md:mb-48 mb-24">
+<section class="max-h-screen flex items-center stacking-context z-content md:mb-48 mb-6">
 	<div class="absolute bg-[#faf5f0] z-background inset-0"></div>
 	<div class="container mx-auto md:px-4 lg:mt-[calc(120px-3rem)] md:mt-[calc(180px-3rem)]">
 		<div class="flex flex-col lg:flex-row items-center justify-center p-5">

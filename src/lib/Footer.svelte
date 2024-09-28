@@ -51,11 +51,23 @@
 
 			<div>
 				<h3 class="text-2xl mb-8 font-radley text-[#bed173]">Address</h3>
-				<p class="text-white">
+				<p class="text-white mb-4">
 					Ward no 27, Bidyapith Road, By Lane, Ward 27, Deshbandhu Para, Siliguri, West Bengal. <br
 					/>
 					Pin - 734004
 				</p>
+				<div class="w-full h-64">
+					<iframe
+						title="Aavya Mediclinic Location"
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28639.91489041142!2d88.39077352148003!3d26.714885841526783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e445ea4e82e1ab%3A0x66887e17277589c4!2sDr.%20Avirup%20Majumdar%20(AAVYA%20MEDICLINIC)!5e0!3m2!1sen!2sin!4v1695911789244!5m2!1sen!2sin"
+						width="100%"
+						height="100%"
+						style="border:0;"
+						allow="fullscreen"
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+					></iframe>
+				</div>
 			</div>
 		</div>
 

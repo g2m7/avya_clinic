@@ -16,7 +16,7 @@
 	});
 </script>
 
-<section class="md:mt-8 md:mb-8 py-16 md:px-4" {id} use:scrollTo>
+<section class="md:mt-8 md:mb-8 py-12 md:px-4" {id} use:scrollTo>
 	<div class="container mx-auto md:w-1/2 w-[90vw]">
 		<div class="text-center">
 			{#if isVisible}
