@@ -54,22 +54,28 @@
 </script>
 
 <section class="md:py-16 px-4 mt-24 mb-16 relative" {id} use:scrollTo>
-	<div class="container md:max-w-[70vw] w-full mx-auto">
-		<div class="container w-full text-center">
-			<h2 class="text-[#88abda] mb-10">We Provide</h2>
-			<h3 class="md:mb-24 mb-10">
+	<div class="container mx-auto text-center">
+		<div class="container w-[45vw] md:mb-16 mx-auto">
+			<h3 in:fade={{ duration: 1000 }} class="mb-12 font-radley text-[#88abda] text-2xl">
+				Services
+			</h3>
+			<!-- <h2 class="text-[#88abda] mb-10">Services</h2> -->
+			<h3 class="md:mb-24 mb-6 leading-relaxed">
 				Medical consultation is provided (by Dr. Avirup) for the following ailments :
 			</h3>
+			<!-- <p class="text-lg leading-relaxed">Medical consultation is provided (by Dr. Avirup) for the following ailments :</p> -->
 		</div>
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-16 gap-8">
-			{#each services as service}
-				<div class="bg-[#faf5f0] rounded-[30px] shadow-sm overflow-hidden">
-					<img src={service.image} alt={service.title} class="w-full h-3/4 object-cover" />
-					<div class="p-10">
-						<h3 class="text-[24px] mb-2">{service.title}</h3>
+		<div class="container md:max-w-[70vw] w-full mx-auto">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-16 gap-8">
+				{#each services as service}
+					<div class="bg-[#faf5f0] rounded-[30px] shadow-sm overflow-hidden">
+						<img src={service.image} alt={service.title} class="w-full h-3/4 object-cover" />
+						<div class="p-10">
+							<h3 class="text-[24px] mb-2">{service.title}</h3>
+						</div>
 					</div>
-				</div>
-			{/each}
+				{/each}
+			</div>
 		</div>
 	</div>
 </section>

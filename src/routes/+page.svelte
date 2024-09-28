@@ -1,5 +1,4 @@
 <script lang="ts">
-	import ComingSoon from './../lib/ComingSoon.svelte';
 	import Services from './../lib/Services.svelte';
 	import '../app.css';
 	import Section2 from './../lib/Section2.svelte';
@@ -11,7 +10,7 @@
 	import Footer from '$lib/Footer.svelte';
 	import Section4 from '$lib/Section4.svelte';
 	import { page } from '$app/stores';
-	
+	import '../global.css';
 </script>
 
 <svelte:head>

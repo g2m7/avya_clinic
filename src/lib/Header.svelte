@@ -29,26 +29,30 @@
 	}
 </script>
 
-<header class="absolute w-full z-50 bg-[#faf5f0]">
-	<nav class="max-w-full md:mx-2 my-3 px-8 sm:px-4 lg:px-6">
+<header class="absolute w-full stacking-context z-header bg-[#faf5f0]">
+	<nav class="max-w-full md:mx-2 py-3 px-8 sm:px-4 lg:px-6 relative">
 		<img
 			src="{base}/images/home-back-8.png"
 			alt="Decorative element"
-			class="absolute -top-10 -left-10 -rotate-12 w-96 scale-x-[-1] -z-10 opacity-30 md:hidden"
+			class="absolute -top-10 -left-10 -rotate-12 w-96 scale-x-[-1] z-decorations opacity-30 md:hidden"
 		/>
 
 		<div class="flex justify-between items-center h-16">
 			<!-- Logo Area -->
 			<div class="flex-shrink-0">
-				<a href="https://aavyamediclinic.com/">
+				<!-- <a href="https://aavyamediclinic.com/">
 					<img
 						src="{base}/images/logo.jpeg"
 						alt="The Practitioner"
 						class="w-32 md:invisible visible md:w-0 md:mt-0 mt-12"
 					/></a
-				>
-				<a href="https://aavyamediclinic.com/">
+				> -->
+				<!-- <a href="https://aavyamediclinic.com/">
 					<p class="text-[24px] md:visible invisible font-[500] text-[#1a279c]">Aavya Mediclinic</p></a
+				> -->
+
+				<a href="https://aavyamediclinic.com/">
+					<p class="text-[24px] font-[500] text-[#1a279c]">Aavya Mediclinic</p></a
 				>
 			</div>
 

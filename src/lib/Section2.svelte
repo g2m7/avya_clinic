@@ -25,17 +25,8 @@
 						<div class="text-center">
 							{#if isVisible}
 								<div in:fly={{ y: 50, duration: 1000 }}>
-									<h3
-										in:fade={{ duration: 1000 }}
-										class="mb-6 font-radley font-[#989898] text-2xl"
-									>
+									<h3 in:fade={{ duration: 1000 }} class="mb-6 font-radley text-[#88abda]   text-2xl">
 										About Dr. Avirup
-									</h3>
-									<h3 class="h-auto">
-										Hi! I'm Dr. Avirup Majumder, Esteemed Physician,
-										<span class="text-[#88abda]"> Diabetologist, </span>
-										and Internal Medicine Specialist in
-										<span class="text-[#88abda]">Siliguri.</span>
 									</h3>
 								</div>
 							{/if}

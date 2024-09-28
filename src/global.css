@@ -1,0 +1,39 @@
+/* Reset and base styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Global z-index system */
+:root {
+  --z-background: -1;
+  --z-content: 0;
+  --z-hero: 1;
+  --z-positioned: 2;
+  --z-header: 10;
+  --z-floating: 20;
+  --z-modal: 30;
+  --z-spinner: 100;
+}
+
+.z-background { z-index: var(--z-background); }
+.z-content { z-index: var(--z-content); }
+.z-hero { z-index: var(--z-hero); }
+.z-positioned { z-index: var(--z-positioned); }
+.z-header { z-index: var(--z-header); }
+.z-floating { z-index: var(--z-floating); }
+.z-modal { z-index: var(--z-modal); }
+.z-spinner { z-index: var(--z-spinner); }
+
+/* Utility classes for creating stacking contexts */
+.stacking-context {
+  position: relative;
+  z-index: auto;
+}
+
+/* You can add more global styles here */

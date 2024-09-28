@@ -138,9 +138,9 @@
 	}
 </script>
 
-<section class="max-h-screen flex items-center relative z-10 md:mb-[215px] mb-24">
-	<div class="absolute bg-[#faf5f0] z-[-1] min-h-[780px] w-full"></div>
-	<div class="container mx-auto md:px-4 lg:mt-[calc(160px-3rem)] md:mt-[calc(180px-3rem)]">
+<section class="max-h-screen flex items-center stacking-context z-content md:mb-48 mb-24">
+	<div class="absolute bg-[#faf5f0] z-background inset-0"></div>
+	<div class="container mx-auto md:px-4 lg:mt-[calc(120px-3rem)] md:mt-[calc(180px-3rem)]">
 		<div class="flex flex-col lg:flex-row items-center justify-center p-5">
 			<!-- Image decorations -->
 			<div class="container absolute top-40 left-5 w-full h-auto">
@@ -154,7 +154,7 @@
 					<img
 						src="{base}/images/shape-1.png"
 						alt="Decorative dots"
-						class="absolute transition-all duration-300 ease-in-out -z-10 md:block hidden"
+						class="absolute transition-all duration-300 ease-in-out z-positioned md:block hidden"
 						class:opacity-0={!isVisible}
 						class:opacity-100={isVisible}
 						class:translate-y-10={!isVisible}
@@ -162,46 +162,17 @@
 					/>
 				</div>
 			</div>
-
-			<!-- Left Column -->
-			<!-- <div class="w-full lg:w-1/2 md:mr-5 mb-16 lg:mb-0 text-center lg:text-left z-10">
-				<div
-					class="transition-opacity duration-300 ease-in-out"
-					class:opacity-0={!isVisible}
-					class:opacity-100={isVisible}
-				>
-					<p class="font-radley text-[#989898] md:mb-10 mb-2 text-xl md:text-2xl mt-28 md:mt-0">
-						Expert Care with Dr. Avirup
-					</p>
-					<h1 class="md:text-5xl lg:text-[82px] md:mb-12 mb-6 leading-[1.07em]">
-						Modern Medicine,<br />
-						<span class="text-[#527359]">Personalized</span>
-					</h1>
-
-					<p class="md:mb-12 mb-8 max-w-xl mx-auto lg:mx-0">
-						Uncover the root cause to unlock your health. It's more achievable than you think. Let's
-						embark on this journey together.
-					</p>
-					<a
-						href="#form"
-						class="inline-block bg-[#BED173] text-lg text-white font-medium py-4 px-11 rounded-md hover:bg-[#527359] transition duration-300 ease-in-out"
-					>
-						Start Here
-					</a>
-				</div>
-			</div> -->
-
-			<div class="w-full lg:w-1/2 md:pl-24 md:mr-5 mb-16 lg:mb-0 text-center lg:text-left z-10">
+			<!-- Left Column Desktop -->
+			<div
+				class="hidden md:block w-full lg:w-1/2 md:pl-24 md:mr-5 mb-16 lg:mb-0 text-center lg:text-left"
+			>
 				<div
 					class="transition-opacity duration-300 ease-in-out"
 					class:opacity-0={!isVisible}
 					class:opacity-100={isVisible}
 				>
 					<img src="{base}/images/logo.jpeg" class="w-1/2 mb-6" alt="" />
-					<h2 class="md:text-3xl lg:text-4xl md:mb-6 mb-4">
-					
-						 Dr. Avirup Majumdar
-					</h2>
+					<h2 class="md:text-3xl lg:text-4xl md:mb-6 mb-4">Dr. Avirup Majumdar</h2>
 					<p class="md:mb-4 mb-2">MBBS, MD( General Medicine)(KGMU Lucknow)</p>
 					<p class="md:mb-4 mb-2">CCEBDM (Diabetology)</p>
 					<p class="md:mb-8 mb-0">Reg No- 72871 (West Bengal Medical Council)</p>
@@ -214,8 +185,10 @@
 				</div>
 			</div>
 
-			<!-- Right Column -->
-			<div class="w-full lg:w-1/2 relative mb-[-60px]">
+			<!-- Right Column Default -->
+			<div class="w-full lg:w-1/2 relative md:mb-[-60px] md:mt-0 mb-12 mt-8">
+				<img src="{base}/images/logo.jpeg" class="md:hidden w-1/2 mx-auto mb-6" alt="" />
+
 				<div
 					bind:this={imageContainer}
 					on:mousemove={handleMouseMove}
@@ -235,18 +208,40 @@
 					bind:this={shapeElement}
 					src="{base}/images/shape-2.png"
 					alt="Decorative shape"
-					class="shape-2 absolute lg:translate-y-5 lg:max-w-[615px]"
+					class="shape-2 absolute lg:translate-y-5 lg:max-w-[615px] z-positioned"
 					style="transform: translate({$shapePosition.x}px, {$shapePosition.y}px)"
 				/>
 				<img
 					src="{base}/images/home-back-10.png"
 					alt="Decorative dots"
-					class="absolute top-10 right-10 w-16 h-auto transition-all duration-300 md:block hidden ease-in-out"
+					class="absolute top-10 right-10 w-16 h-auto transition-all duration-300 md:block hidden ease-in-out z-positioned"
 					class:opacity-0={!isVisible}
 					class:opacity-100={isVisible}
 					class:translate-y-10={!isVisible}
 					class:translate-y-0={isVisible}
 				/>
+			</div>
+
+			<!-- Left Column Mobile -->
+			<div
+				class="md:hidden w-full lg:w-1/2 md:pl-24 md:mr-5 mb-16 lg:mb-0 text-center lg:text-left"
+			>
+				<div
+					class="transition-opacity duration-300 ease-in-out"
+					class:opacity-0={!isVisible}
+					class:opacity-100={isVisible}
+				>
+					<h2 class="md:text-3xl lg:text-4xl md:mb-6 mb-4">Dr. Avirup Majumdar</h2>
+					<p class="md:mb-4 mb-2">MBBS, MD( General Medicine)(KGMU Lucknow)</p>
+					<p class="md:mb-4 mb-2">CCEBDM (Diabetology)</p>
+					<p class="md:mb-8 mb-0">Reg No- 72871 (West Bengal Medical Council)</p>
+					<a
+						href="#contact"
+						class="hidden sm:inline-block bg-[#BED173] text-lg text-white font-medium py-4 px-11 rounded-md hover:bg-[#527359] transition duration-300 ease-in-out"
+					>
+						Contact Us
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -262,8 +257,8 @@
 	@media (max-width: 480px) {
 		.shape-2 {
 			right: -10%;
-			top: -5%;
-			width: 60%;
+			bottom: -15%;
+			width: 50%;
 		}
 	}
 </style>

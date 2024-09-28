@@ -61,7 +61,7 @@
 
 		<div class="mt-16 pt-8 flex flex-wrap justify-between items-center">
 			<p class="font-normal text-lg text-[#97a4ae]">
-				© {currentYear} Aavya Clinic. All rights reserved.
+				© {currentYear} Aavya Mediclinic. All rights reserved.
 			</p>
 		</div>
 	</div>

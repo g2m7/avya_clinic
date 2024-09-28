@@ -53,7 +53,7 @@
 						in:fly={{ y: 50, duration: 1000, delay: index * 200 }}
 						class="bg-white p-12 rounded-2xl border flex justify-between flex-col"
 					>
-						<p class="mb-8 text-xl">{testimonial.text}</p>
+						<p class="mb-8 text-xl italic"><span class="text-[#c92828]">"</span>{testimonial.text}<span class="text-[#c92828]">"</span></p>
 						<div class="flex items-center">
 							<span class="text-xl">{testimonial.author}</span>
 						</div>
