@@ -68,8 +68,8 @@
 		<div class="container md:max-w-[70vw] w-[90vw] mx-auto">
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-16 gap-8">
 				{#each services as service}
-					<div class="bg-[#faf5f0] rounded-[30px] shadow-sm overflow-hidden md:h-auto max-h-[40vh]">
-						<img src={service.image} alt={service.title} class="w-full h-4/5 object-cover" />
+					<div class="bg-[#faf5f0] rounded-[30px] shadow-sm overflow-hidden -sm:max-h-[40vh]">
+						<img src={service.image} alt={service.title} class="w-full md:h-3/4 h-4/5 object-cover" />
 						<div class="p-auto m-auto md:p-10">
 							<h3 class="text-[24px] md:mb-2">{service.title}</h3>
 						</div>
