@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Testimonials from './Testimonials.svelte';
 	import { base } from '$app/paths';
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
+	import { scrollTo } from '$lib/actions/scrollTo';
 
 	let isOffcanvasOpen = false;
 	let showButton = false;
@@ -55,29 +55,27 @@
 				<a
 					href="#about"
 					class="text-[#5a595a] text-lg font-normal hover:text-[#989898] transition-colors nav-link"
-					>About</a
-				>
+					use:scrollTo
+				>About</a>
 				<a
 					href="#services"
 					class="text-[#5a595a] text-lg font-normal hover:text-[#989898] transition-colors nav-link"
-					>Services</a
-				>
+					use:scrollTo
+				>Services</a>
 				<a
 					href="#testimonials"
 					class="text-[#5a595a] text-lg font-normal hover:text-[#989898] transition-colors nav-link"
-					>Testimonials</a
-				>
+					use:scrollTo
+				>Testimonials</a>
 				<a
 					href="#contact"
 					class="text-[#5a595a] text-lg font-normal hover:text-[#989898] transition-colors nav-link"
-					>Contact Us</a
-				>
+					use:scrollTo
+				>Contact Us</a>
 			</div>
 
 			<!-- Mobile menu button -->
-			<div
-				class="md:hidden p-1 rounded-full z-50 bg-[#BED173]"
-			>
+			<div class="md:hidden p-1 rounded-full z-50 bg-[#BED173]">
 				<button
 					on:click={toggleOffcanvas}
 					type="button"
@@ -136,26 +134,26 @@
 					href="#about"
 					on:click={toggleOffcanvas}
 					class="block px-4 py-4 text-[#ffff] text-2xl font-normal hover:text-[#333133] transition-colors"
-					>About</a
-				>
+					use:scrollTo
+				>About</a>
 				<a
 					href="#services"
 					on:click={toggleOffcanvas}
 					class="block px-4 py-4 text-[#ffff] text-2xl font-normal hover:text-[#333133] transition-colors"
-					>Services</a
-				>
+					use:scrollTo
+				>Services</a>
 				<a
 					href="#testimonials"
 					on:click={toggleOffcanvas}
 					class="block px-4 py-4 text-[#ffff] text-2xl font-normal hover:text-[#333133] transition-colors"
-					>Testimonials</a
-				>
+					use:scrollTo
+				>Testimonials</a>
 				<a
 					href="#contact"
 					on:click={toggleOffcanvas}
 					class="block px-4 py-4 text-[#ffff] text-2xl font-normal hover:text-[#333133] transition-colors"
-					>Contact us</a
-				>
+					use:scrollTo
+				>Contact us</a>
 			</div>
 		</div>
 	{/if}

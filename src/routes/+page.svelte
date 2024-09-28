@@ -1,16 +1,17 @@
 <script lang="ts">
-	import Services from './../lib/Services.svelte';
-	import '../app.css';
-	import Section2 from './../lib/Section2.svelte';
+	import { page } from '$app/stores';
+	import Footer from '$lib/Footer.svelte';
+	import Gallery from '$lib/Gallery.svelte';
 	import Header from '$lib/Header.svelte';
 	import Hero from '$lib/Hero.svelte';
-	import Testimonials from '$lib/Testimonials.svelte';
-	import SolutionCta from '$lib/SolutionCTA.svelte';
-	import Gallery from '$lib/Gallery.svelte';
-	import Footer from '$lib/Footer.svelte';
 	import Section4 from '$lib/Section4.svelte';
-	import { page } from '$app/stores';
+	import SolutionCta from '$lib/SolutionCTA.svelte';
+	import Testimonials from '$lib/Testimonials.svelte';
+	import '../app.css';
 	import '../global.css';
+	import Section2 from './../lib/Section2.svelte';
+	import Services from './../lib/Services.svelte';
+	import { scrollTo } from '$lib/actions/scrollTo';
 </script>
 
 <svelte:head>

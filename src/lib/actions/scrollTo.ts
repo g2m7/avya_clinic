@@ -1,26 +1,24 @@
-export function scrollTo(node: HTMLElement) {
-  const id = node.id;
-  
-  if (id) {
-    const scrollToElement = () => {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    };
+import { spring } from 'svelte/motion';
 
-    // Check if the URL contains the ID on page load
-    if (window.location.hash === `#${id}`) {
-      setTimeout(scrollToElement, 0);
-    }
+export function scrollTo(node: HTMLElement, { offset = 0 } = {}) {
+  const scroll = spring(0, {
+    stiffness: 0.1,
+    damping: 0.8,
+  });
 
-    // Listen for hash changes
-    window.addEventListener('hashchange', scrollToElement);
+  const scrollToElement = () => {
+    const elementPosition = node.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-    return {
-      destroy() {
-        window.removeEventListener('hashchange', scrollToElement);
-      }
-    };
-  }
+    scroll.set(offsetPosition);
+    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+  };
+
+  node.addEventListener('click', scrollToElement);
+
+  return {
+    destroy() {
+      node.removeEventListener('click', scrollToElement);
+    },
+  };
 }
