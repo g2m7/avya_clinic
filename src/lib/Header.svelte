@@ -5,9 +5,10 @@
 	import { scrollTo } from '$lib/actions/scrollTo';
 
 	let isOffcanvasOpen = false;
-	let showButton = false;
-	let isScrolled = false;
 	let y: number;
+
+	$: isScrolled = y > 50;
+	$: showButton = y > 200;
 
 	function toggleOffcanvas() {
 		isOffcanvasOpen = !isOffcanvasOpen;
@@ -18,18 +19,6 @@
 		}
 	}
 
-	function handleScroll() {
-		y = window.scrollY;
-		showButton = y > 200;
-		isScrolled = y > 50;
-	}
-
-	onMount(() => {
-		window.addEventListener('scroll', handleScroll);
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	});
 
 	function scrollToTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -40,51 +29,45 @@
 
 <header
 	class="fixed w-full z-header transition-all duration-300 ease-in-out"
-	class:backdrop-blur-md={isScrolled}
-	class:shadow-sm={isScrolled}
     class:py-2={isScrolled}
-    class:py-4={!isScrolled}
-    style={isScrolled ? "background-color: rgba(250, 245, 240, 0.8);" : "background-color: transparent;"}
+    class:py-6={!isScrolled}
+    style={isScrolled ? "background-color: #faf5f0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);" : "background-color: transparent;"}
 >
 	<nav class="container mx-auto px-4 md:px-8 flex justify-between items-center">
-        <!-- Logo -->
+        <!-- Logo - Strong Typographic Presence -->
         <a href="/" class="flex-shrink-0 group">
-            <p class="text-2xl font-medium text-[#1a279c] group-hover:text-opacity-80 transition-colors">Aavya Mediclinic</p>
+            <h1 class="text-2xl font-bold tracking-tight text-[#1a279c]">Aavya Mediclinic</h1>
         </a>
 
-        <!-- Desktop Menu -->
-		<div class="hidden md:flex space-x-10 items-center">
+        <!-- Desktop Menu - Calm & Authoritative -->
+		<div class="hidden md:flex space-x-12 items-center">
 			<a
 				href="#about"
-				class="text-gray-600 hover:text-black text-lg transition-colors relative group"
+				class="text-gray-600 hover:text-[#1a279c] text-base font-medium transition-colors"
 				use:scrollTo
 			>
 				About
-				<span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#BED173] transition-all duration-300 group-hover:w-full"></span>
 			</a>
 			<a
 				href="#services"
-				class="text-gray-600 hover:text-black text-lg transition-colors relative group"
+				class="text-gray-600 hover:text-[#1a279c] text-base font-medium transition-colors"
 				use:scrollTo
 			>
 				Services
-				<span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#BED173] transition-all duration-300 group-hover:w-full"></span>
 			</a>
 			<a
 				href="#testimonials"
-				class="text-gray-600 hover:text-black text-lg transition-colors relative group"
+				class="text-gray-600 hover:text-[#1a279c] text-base font-medium transition-colors"
 				use:scrollTo
 			>
 				Testimonials
-				<span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#BED173] transition-all duration-300 group-hover:w-full"></span>
 			</a>
 			<a
 				href="#contact"
-				class="text-gray-600 hover:text-black text-lg transition-colors relative group"
+				class="text-gray-600 hover:text-[#1a279c] text-base font-medium transition-colors"
 				use:scrollTo
 			>
-				Contact Us
-				<span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#BED173] transition-all duration-300 group-hover:w-full"></span>
+				Contact
 			</a>
 		</div>
 
@@ -108,37 +91,37 @@
 	<!-- Mobile Menu Overlay -->
 	{#if isOffcanvasOpen}
 		<div
-			class="fixed inset-0 bg-[#BED173] z-40 flex flex-col items-center justify-center space-y-8"
+			class="fixed inset-0 bg-[#faf5f0] z-40 flex flex-col items-center justify-center space-y-8"
 			transition:fade={{ duration: 300 }}
 		>
 			<a
 				href="#about"
 				on:click={toggleOffcanvas}
-				class="text-white text-4xl font-light hover:text-black transition-colors"
+				class="text-gray-900 text-3xl font-medium hover:text-[#1a279c] transition-colors"
 				in:fly={{ y: 20, delay: 100, duration: 400 }}
 				use:scrollTo
 			>About</a>
 			<a
 				href="#services"
 				on:click={toggleOffcanvas}
-				class="text-white text-4xl font-light hover:text-black transition-colors"
+				class="text-gray-900 text-3xl font-medium hover:text-[#1a279c] transition-colors"
 				in:fly={{ y: 20, delay: 150, duration: 400 }}
 				use:scrollTo
 			>Services</a>
 			<a
 				href="#testimonials"
 				on:click={toggleOffcanvas}
-				class="text-white text-4xl font-light hover:text-black transition-colors"
+				class="text-gray-900 text-3xl font-medium hover:text-[#1a279c] transition-colors"
 				in:fly={{ y: 20, delay: 200, duration: 400 }}
 				use:scrollTo
 			>Testimonials</a>
 			<a
 				href="#contact"
 				on:click={toggleOffcanvas}
-				class="text-white text-4xl font-light hover:text-black transition-colors"
+				class="text-gray-900 text-3xl font-medium hover:text-[#1a279c] transition-colors"
 				in:fly={{ y: 20, delay: 250, duration: 400 }}
 				use:scrollTo
-			>Contact Us</a>
+			>Contact</a>
 		</div>
 	{/if}
 </header>
@@ -147,12 +130,12 @@
 {#if showButton}
 	<button
 		on:click={scrollToTop}
-		class="fixed bottom-8 right-8 bg-[#88abda] text-white z-floating p-3 rounded-full hover:bg-[#333133] hover:scale-110 transition-all duration-300 shadow-lg"
+		class="fixed bottom-8 right-8 bg-[#1a279c] text-white z-floating p-3 rounded-full hover:bg-black hover:scale-110 transition-all duration-300 shadow-lg"
 		transition:fade
 		aria-label="Scroll to top"
 	>
 		<svg
-			class="w-6 h-6"
+			class="w-5 h-5"
 			fill="none"
 			stroke="currentColor"
 			viewBox="0 0 24 24"

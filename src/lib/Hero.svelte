@@ -37,10 +37,9 @@
 <section bind:this={section} class="relative min-h-[90vh] flex items-center bg-[#faf5f0] overflow-hidden pt-24 pb-12">
 
     <!-- Spatial Depth: Background Plane (Mid-ground) -->
-    <!-- Positioned on the right, creating a split-plane effect that the image will bridge -->
     <div
         bind:this={bgPlane}
-        class="hidden lg:block absolute top-0 right-0 h-full w-[35%] bg-[#E8E4DF] z-0 pointer-events-none"
+        class="hidden lg:block absolute top-0 right-0 h-full w-[35%] bg-[#E0DDD9] z-0 pointer-events-none"
     ></div>
 
 	<div class="container mx-auto px-6 relative z-10">
@@ -48,25 +47,22 @@
 
             <!-- Text Column (Foreground) -->
 			<div bind:this={leftCol} class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
-                <!-- Logo Infrastructure -->
-                <div class="mb-10 opacity-80">
-                    <img src="{base}/images/logo.jpeg" class="h-14 w-auto mix-blend-multiply grayscale-[20%]" alt="Aavya Mediclinic Logo" />
-                </div>
+                <!-- Removed duplicate inline logo image to rely on Header infrastructure -->
 
-				<h1 class="text-5xl lg:text-7xl font-normal text-slate-900 mb-6 leading-[1.1] tracking-tight">
-                    Dr. Avirup Majumdar
+				<h1 class="text-6xl lg:text-8xl font-bold text-black mb-6 leading-[1] tracking-tighter drop-shadow-sm">
+                    Dr. Avirup <br/> Majumdar
                 </h1>
 
-                <div class="space-y-1 mb-10">
-				<p class="text-xl text-gray-700 font-light">MBBS, MD (General Medicine) <span class="text-gray-400">|</span> KGMU Lucknow</p>
-				<p class="text-xl text-gray-700 font-light">CCEBDM (Diabetology)</p>
-				<p class="text-sm text-gray-500 mt-2 tracking-wide uppercase">Reg No- 72871 (WBMC)</p>
+                <div class="space-y-2 mb-10">
+				<p class="text-2xl text-gray-900 font-medium">MBBS, MD (General Medicine) <span class="text-gray-400">|</span> KGMU Lucknow</p>
+				<p class="text-xl text-gray-800 font-medium">CCEBDM (Diabetology)</p>
+				<p class="text-sm text-gray-500 mt-2 tracking-wide uppercase font-semibold">Reg No- 72871 (WBMC)</p>
                 </div>
 
 				<div>
 					<a
 						href="#contact"
-						class="inline-block border border-gray-400 text-gray-800 text-lg font-light py-3 px-8 rounded-sm hover:bg-gray-800 hover:text-white hover:border-gray-800 transition-all duration-300"
+						class="inline-block bg-[#1a279c] text-white text-lg font-medium py-4 px-10 rounded-sm hover:bg-black transition-all duration-300 shadow-lg"
 					>
 						Check Availability
 					</a>
@@ -76,7 +72,6 @@
 			<!-- Image Column (Foreground/Bridge) -->
 			<div class="w-full lg:w-1/2 flex justify-center lg:justify-end relative">
                 <!-- Image Container bridges the gap between the main bg and the right plane -->
-                <!-- Translating it slightly left (-translate-x-12) on desktop to effect the overlap -->
 				<div
 					bind:this={imageContainer}
 					class="relative w-full max-w-md aspect-[4/5] shadow-2xl lg:-translate-x-12"
@@ -84,7 +79,7 @@
 					<img
 						src="{base}/images/doctor.webp"
 						alt="Dr. Avirup Majumdar"
-						class="w-full h-full object-cover"
+						class="w-full h-full object-cover grayscale-[10%] contrast-125"
 					/>
 				</div>
 			</div>
