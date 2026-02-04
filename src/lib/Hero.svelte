@@ -6,120 +6,74 @@
 	let section: HTMLElement;
 	let leftCol: HTMLElement;
 	let imageContainer: HTMLElement;
-	let bgShape: HTMLElement;
 
 	onMount(() => {
-		const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+		const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
-		if (leftCol && imageContainer && bgShape) {
+		if (leftCol && imageContainer) {
 			tl.fromTo(
 				leftCol.children,
-				{ y: 50, opacity: 0 },
-				{ y: 0, opacity: 1, duration: 1, stagger: 0.2 }
+				{ y: 30, opacity: 0 },
+				{ y: 0, opacity: 1, duration: 0.8, stagger: 0.1 }
 			)
 			.fromTo(
 				imageContainer,
-				{ scale: 0.9, opacity: 0 },
-				{ scale: 1, opacity: 1, duration: 1.2 },
-				'-=0.8'
-			)
-			.fromTo(
-				bgShape,
-				{ rotation: -10, opacity: 0, scale: 0.8 },
-				{ rotation: 0, opacity: 1, scale: 1, duration: 1.5 },
-				'-=1'
+				{ opacity: 0, y: 20 },
+				{ opacity: 1, y: 0, duration: 1 },
+				'-=0.6'
 			);
 		}
 
-		const handleMouseMove = (e: MouseEvent) => {
-			if (!imageContainer || !bgShape) return;
-			const { clientX, clientY } = e;
-			const xPos = (clientX / window.innerWidth - 0.5) * 20;
-			const yPos = (clientY / window.innerHeight - 0.5) * 20;
-
-			gsap.to(imageContainer, {
-				x: xPos,
-				y: yPos,
-				duration: 1,
-				ease: 'power2.out'
-			});
-			gsap.to(bgShape, {
-				x: -xPos * 2,
-				y: -yPos * 2,
-				duration: 1.5,
-				ease: 'power2.out'
-			});
-		};
-
-		window.addEventListener('mousemove', handleMouseMove);
-
-		return () => {
-			window.removeEventListener('mousemove', handleMouseMove);
-			tl.kill();
-		};
+        // Removed mousemove parallax for a calmer, more stable feel
 	});
 </script>
 
-<section bind:this={section} class="relative min-h-screen flex items-center overflow-hidden bg-[#faf5f0] pt-24 pb-12">
-    <!-- Background Decor -->
-    <div class="absolute inset-0 z-0 pointer-events-none">
-         <img
-            src="{base}/images/shape-1.png"
-            alt=""
-            class="absolute top-20 left-10 w-32 opacity-20"
-         />
-         <img
-            src="{base}/images/home-back-10.png"
-            alt=""
-            class="absolute top-10 right-10 w-24 opacity-30"
-        />
-    </div>
+<section bind:this={section} class="relative min-h-[90vh] flex items-center bg-[#faf5f0] pt-24 pb-12">
+	<div class="container mx-auto px-6 relative z-10">
+		<div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
 
-	<div class="container mx-auto px-4 relative z-10">
-		<div class="flex flex-col lg:flex-row items-center">
-			<!-- Text Column -->
-			<div bind:this={leftCol} class="w-full lg:w-1/2 lg:pr-12 mb-12 lg:mb-0 text-center lg:text-left z-20">
-                <img src="{base}/images/logo.jpeg" class="w-48 mx-auto lg:mx-0 mb-8 mix-blend-multiply" alt="Logo" />
-				<h1 class="text-4xl lg:text-6xl font-light text-[#333133] mb-6 leading-tight">
+            <!-- Text Column -->
+			<div bind:this={leftCol} class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
+                <!-- Logo as infrastructure, smaller and cleaner -->
+                <div class="mb-10 opacity-80">
+                    <img src="{base}/images/logo.jpeg" class="h-16 w-auto mix-blend-multiply grayscale-[20%]" alt="Aavya Mediclinic Logo" />
+                </div>
+
+				<h1 class="text-5xl lg:text-7xl font-normal text-slate-900 mb-6 leading-[1.1] tracking-tight">
                     Dr. Avirup Majumdar
                 </h1>
-				<p class="text-xl text-gray-600 mb-2 font-light">MBBS, MD( General Medicine)(KGMU Lucknow)</p>
-				<p class="text-xl text-gray-600 mb-2 font-light">CCEBDM (Diabetology)</p>
-				<p class="text-lg text-gray-500 mb-8">Reg No- 72871 (West Bengal Medical Council)</p>
 
-				<div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <div class="space-y-1 mb-10">
+				<p class="text-xl text-gray-700 font-light">MBBS, MD (General Medicine) <span class="text-gray-400">|</span> KGMU Lucknow</p>
+				<p class="text-xl text-gray-700 font-light">CCEBDM (Diabetology)</p>
+				<p class="text-sm text-gray-500 mt-2 tracking-wide uppercase">Reg No- 72871 (WBMC)</p>
+                </div>
+
+				<div>
 					<a
 						href="#contact"
-						class="inline-block bg-[#BED173] text-white text-lg font-medium py-4 px-10 rounded-full hover:bg-[#527359] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+						class="inline-block border border-gray-400 text-gray-800 text-lg font-light py-3 px-8 rounded-md hover:bg-gray-800 hover:text-white hover:border-gray-800 transition-all duration-300"
 					>
-						Contact Us
+						Check Availability
 					</a>
 				</div>
 			</div>
 
 			<!-- Image Column -->
-			<div class="w-full lg:w-1/2 relative flex justify-center lg:justify-end">
-                <div class="relative w-full max-w-lg">
-                     <!-- Decorative Shape behind image -->
-                    <img
-                        bind:this={bgShape}
-                        src="{base}/images/shape-2.png"
-                        alt=""
-                        class="absolute -right-10 -bottom-10 w-full h-auto z-0 opacity-80"
-                    />
-
-                    <!-- Main Image Container -->
+			<div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
+                <!-- Simplified Image Container: No shapes, minimal rounding -->
 				<div
 					bind:this={imageContainer}
-					class="relative z-10 aspect-[4/5] rounded-tl-[100px] rounded-br-[100px] overflow-hidden shadow-2xl"
+					class="relative w-full max-w-md aspect-[4/5] rounded-xl overflow-hidden bg-gray-200"
 				>
 					<img
 						src="{base}/images/doctor.webp"
 						alt="Dr. Avirup Majumdar"
 						class="w-full h-full object-cover"
 					/>
+                    <!-- Subtle overlay to ensure text contrast if needed, or just tone down the image slightly -->
+                    <div class="absolute inset-0 bg-black/5 pointer-events-none"></div>
 				</div>
-                </div>
 			</div>
 		</div>
 	</div>
