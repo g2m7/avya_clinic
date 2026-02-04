@@ -1,264 +1,149 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { spring } from 'svelte/motion';
 	import { base } from '$app/paths';
+	import gsap from 'gsap';
 
-	let mouseX = 0;
-	let mouseY = 0;
-
-	let isVisible = false;
-	let imageElement: HTMLImageElement;
-	let shapeElement: HTMLImageElement;
-
-	const heroPosition = spring(
-		{ x: 0, y: 0 },
-		{
-			stiffness: 0.05,
-			damping: 0.3
-		}
-	);
-	const shapePosition = spring(
-		{ x: 0, y: 0 },
-		{
-			stiffness: 0.05,
-			damping: 0.3
-		}
-	);
+	let section: HTMLElement;
+	let leftCol: HTMLElement;
+	let imageContainer: HTMLElement;
+	let bgShape: HTMLElement;
+	let decoShape: HTMLElement;
 
 	onMount(() => {
-		isVisible = true;
-	});
+		const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
-	let imageContainer: HTMLDivElement;
+		if (leftCol && imageContainer && bgShape) {
+			// Original Entrance Sequence
+			tl.fromTo(
+				bgShape,
+				{ scale: 0.8, opacity: 0 },
+				{ scale: 1, opacity: 1, duration: 1.2, ease: 'back.out(1.7)' }
+			)
+				.fromTo(imageContainer, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1 }, '-=0.8')
+				.fromTo(
+					leftCol.children,
+					{ y: 30, opacity: 0 },
+					{ y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power2.out' },
+					'-=0.6'
+				);
 
-	const containerPosition = spring(
-		{ x: 0, y: 0 },
-		{
-			stiffness: 0.05,
-			damping: 0.3
-		}
-	);
-
-	onMount(() => {
-		isVisible = true;
-	});
-
-	function handleMouseMove(event: MouseEvent) {
-		if (imageContainer && shapeElement) {
-			const rect = imageContainer.getBoundingClientRect();
-			const mouseX = (event.clientX - rect.left) / rect.width - 0.5;
-			const mouseY = (event.clientY - rect.top) / rect.height - 0.5;
-
-			containerPosition.set({ x: mouseX * 20, y: mouseY * 20 });
-			shapePosition.set({ x: -mouseX * 40, y: -mouseY * 40 });
-		}
-	}
-
-	// function handleMouseMove(event: MouseEvent) {
-	// 	if (imageElement && shapeElement) {
-	// 		const rect = imageElement.getBoundingClientRect();
-	// 		const mouseX = (event.clientX - rect.left) / rect.width - 0.5;
-	// 		const mouseY = (event.clientY - rect.top) / rect.height - 0.5;
-
-	// 		heroPosition.set({ x: mouseX * 10, y: mouseY * 10 });
-	// 		shapePosition.set({ x: -mouseX * 40, y: -mouseY * 40 });
-	// 	}
-	// }
-
-	interface ScrollSpringParams {
-		translateY: number;
-		damping?: number;
-		stiffness?: number;
-		maxTranslate?: number;
-		minTranslate?: number;
-	}
-
-	function createScrollSpring(node: HTMLElement, params: ScrollSpringParams) {
-		const {
-			translateY,
-			damping = 0.8,
-			stiffness = 0.015,
-			maxTranslate = 100, // Maximum pixels to translate down
-			minTranslate = -100 // Maximum pixels to translate up
-		} = params;
-
-		const springStore = spring({ y: 0 }, { stiffness, damping });
-
-		let startY = 0;
-		let elementHeight = node.offsetHeight;
-		let windowHeight = window.innerHeight;
-
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						startY = window.scrollY;
-						elementHeight = entry.boundingClientRect.height;
-						windowHeight = window.innerHeight;
-					}
-				});
-			},
-			{ threshold: 0 }
-		);
-
-		observer.observe(node);
-
-		function updatePosition() {
-			const scrollY = window.scrollY;
-			const relativeScroll = scrollY - startY;
-			const viewportPosition = node.getBoundingClientRect().top;
-
-			// Calculate the translation based on viewport position
-			let translation = (viewportPosition / windowHeight) * translateY * elementHeight;
-
-			// Clamp the translation within the specified range
-			translation = Math.max(minTranslate, Math.min(maxTranslate, translation));
-
-			springStore.set({ y: translation });
-		}
-
-		window.addEventListener('scroll', updatePosition);
-		window.addEventListener('resize', updatePosition);
-
-		const unsubscribe = springStore.subscribe(($spring) => {
-			node.style.transform = `translateY(${$spring.y}px)`;
-		});
-
-		return {
-			destroy() {
-				observer.disconnect();
-				window.removeEventListener('scroll', updatePosition);
-				window.removeEventListener('resize', updatePosition);
-				unsubscribe();
-			},
-			update(newParams: ScrollSpringParams) {
-				Object.assign(params, newParams);
+			if (decoShape) {
+				gsap.fromTo(
+					decoShape,
+					{ rotation: 0, opacity: 0 },
+					{ rotation: 360, opacity: 1, duration: 20, repeat: -1, ease: 'linear' }
+				);
 			}
-		};
-	}
+		}
+	});
 </script>
 
-<section class="max-h-screen flex items-center stacking-context z-content md:mb-48 mb-6">
-	<div class="absolute bg-[#faf5f0] z-background inset-0"></div>
-	<div class="container mx-auto md:px-4 lg:mt-[calc(120px-3rem)] md:mt-[calc(180px-3rem)]">
-		<div class="flex flex-col lg:flex-row items-center justify-center p-5">
-			<!-- Image decorations -->
-			<div class="container absolute top-40 left-5 w-full h-auto">
-				<div
-					use:createScrollSpring={{
-						translateY: 1,
-						maxTranslate: 50,
-						minTranslate: -50
-					}}
-				>
-					<img
-						src="{base}/images/shape-1.png"
-						alt="Decorative dots"
-						class="absolute transition-all duration-300 ease-in-out z-positioned md:block hidden"
-						class:opacity-0={!isVisible}
-						class:opacity-100={isVisible}
-						class:translate-y-10={!isVisible}
-						class:translate-y-0={isVisible}
-					/>
-				</div>
-			</div>
-			<!-- Left Column Desktop -->
+<section
+	bind:this={section}
+	class="relative min-h-screen flex items-center bg-[#faf5f0] overflow-hidden pt-24 pb-12"
+>
+	<!-- Decoration: Striped Circle (Left) -->
+	<div class="absolute top-1/4 -left-12 w-32 h-32 opacity-20 pointer-events-none">
+		<img src="{base}/images/shape-1.png" alt="" class="w-full h-full object-contain" />
+	</div>
+
+	<!-- Background Organic Shape (Right) replaced the rectangular plane -->
+	<div
+		bind:this={bgShape}
+		class="hidden lg:block absolute top-[5%] right-0 h-[90%] w-[45%] z-0 pointer-events-none"
+	>
+		<img
+			src="{base}/images/shape-2.png"
+			alt=""
+			class="w-full h-full object-contain object-right-top opacity-50"
+		/>
+	</div>
+
+	<div class="container mx-auto px-6 relative z-10">
+		<div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+			<!-- Text Column (Foreground) -->
 			<div
-				class="hidden md:block w-full lg:w-1/2 md:pl-24 md:mr-5 mb-16 lg:mb-0 text-center lg:text-left"
+				bind:this={leftCol}
+				class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left"
 			>
-				<div
-					class="transition-opacity duration-300 ease-in-out"
-					class:opacity-0={!isVisible}
-					class:opacity-100={isVisible}
+				<!-- PRESERVED: Leading for Name -->
+				<h1
+					class="text-6xl lg:text-8xl font-normal text-[#333133] mb-6 leading-[1.05] tracking-tighter drop-shadow-sm"
 				>
-					<img src="{base}/images/logo.jpeg" class="w-1/2 mb-6" alt="" />
-					<h2 class="md:text-3xl lg:text-4xl md:mb-6 mb-4">Dr. Avirup Majumdar</h2>
-					<p class="md:mb-4 mb-2">MBBS, MD( General Medicine)(KGMU Lucknow)</p>
-					<p class="md:mb-4 mb-2">CCEBDM (Diabetology)</p>
-					<p class="md:mb-8 mb-0">Reg No- 72871 (West Bengal Medical Council)</p>
+					Dr. Avirup <br /> Majumdar
+				</h1>
+
+				<!-- PRESERVED: Space Mono Typography for Credentials -->
+				<div class="space-y-3 mb-10 text-sm tracking-tight text-gray-700">
+					<p class="font-mono uppercase">
+						<span class="font-bold text-[#333133]">MBBS, MD</span> (General Medicine)
+						<span class="text-gray-400 px-1">|</span> KGMU Lucknow
+					</p>
+					<p class="font-mono uppercase">
+						<span class="font-bold text-[#333133]">CCEBDM</span> (Diabetology)
+					</p>
+					<p class="font-mono text-xs text-gray-500 mt-2 tracking-widest uppercase opacity-70">
+						Reg No- 72871 (WBMC)
+					</p>
+				</div>
+
+				<div>
+					<!-- PRESERVED: Blue Button -->
 					<a
-						href="#contact"
-						class="hidden sm:inline-block bg-[#BED173] text-lg text-white font-medium py-4 px-11 rounded-md hover:bg-[#527359] transition duration-300 ease-in-out"
+						href="#services"
+						class="group inline-flex items-center gap-3 text-[#333133] text-lg font-medium px-2 py-2 hover:opacity-70 transition-all duration-300"
 					>
-						Contact Us
+						<span class="border-b border-[#333133] pb-0.5">View Our Services</span>
+						<span class="transform group-hover:translate-x-1 transition-transform duration-300"
+							>→</span
+						>
 					</a>
 				</div>
 			</div>
 
-			<!-- Right Column Default -->
-			<div class="w-full lg:w-1/2 relative md:mb-[-60px] md:mt-0 mb-12 mt-8">
-				<img src="{base}/images/logo.jpeg" class="md:hidden w-1/2 mx-auto mb-6" alt="" />
+			<!-- Image Column (Foreground/Bridge) -->
+			<div class="w-full lg:w-1/2 flex justify-center lg:justify-end relative">
+				<!-- Decoration: Striped Circle (Right Top of Image) -->
+				<div
+					bind:this={decoShape}
+					class="hidden lg:block absolute -top-12 right-12 w-24 h-24 z-0 opacity-60"
+				>
+					<img src="{base}/images/shape-1.png" alt="" class="w-full h-full object-contain" />
+				</div>
 
+				<!-- Image Container -->
 				<div
 					bind:this={imageContainer}
-					on:mousemove={handleMouseMove}
-					class="transition-all duration-300 ease-in-out transform aspect-square relative overflow-hidden rounded-tl-[40%] rounded-br-[40%] shadow-xl"
-					class:translate-y-10={!isVisible}
-					class:translate-y-0={isVisible}
-					style="transform: translate({$containerPosition.x}px, {$containerPosition.y}px)"
-					role="img"
+					class="relative w-full max-w-md aspect-[4/5] lg:-translate-x-12 z-10"
 				>
+					<!-- Simple Image: No Filters, No Curtain -->
 					<img
 						src="{base}/images/doctor.webp"
-						alt="Dr. Avirup"
-						class="absolute w-full h-full object-cover object-center"
+						alt="Dr. Avirup Majumdar"
+						class="w-full h-full object-cover rounded-sm shadow-2xl"
 					/>
-				</div>
-				<img
-					bind:this={shapeElement}
-					src="{base}/images/shape-2.png"
-					alt="Decorative shape"
-					class="shape-2 absolute lg:translate-y-5 lg:max-w-[615px] z-positioned"
-					style="transform: translate({$shapePosition.x}px, {$shapePosition.y}px)"
-				/>
-				<img
-					src="{base}/images/home-back-10.png"
-					alt="Decorative dots"
-					class="absolute top-10 right-10 w-16 h-auto transition-all duration-300 md:block hidden ease-in-out z-positioned"
-					class:opacity-0={!isVisible}
-					class:opacity-100={isVisible}
-					class:translate-y-10={!isVisible}
-					class:translate-y-0={isVisible}
-				/>
-			</div>
-
-			<!-- Left Column Mobile -->
-			<div
-				class="md:hidden w-full lg:w-1/2 md:pl-24 md:mr-5 mb-16 lg:mb-0 text-center lg:text-left"
-			>
-				<div
-					class="transition-opacity duration-300 ease-in-out"
-					class:opacity-0={!isVisible}
-					class:opacity-100={isVisible}
-				>
-					<h2 class="md:text-3xl lg:text-4xl md:mb-6 mb-4">Dr. Avirup Majumdar</h2>
-					<p class="md:mb-4 mb-2">MBBS, MD( General Medicine)(KGMU Lucknow)</p>
-					<p class="md:mb-4 mb-2">CCEBDM (Diabetology)</p>
-					<p class="md:mb-8 mb-0">Reg No- 72871 (West Bengal Medical Council)</p>
-					<a
-						href="#contact"
-						class="hidden sm:inline-block bg-[#BED173] text-lg text-white font-medium py-4 px-11 rounded-md hover:bg-[#527359] transition duration-300 ease-in-out"
-					>
-						Contact Us
-					</a>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<!-- Scroll Down Indicator -->
+	<div
+		class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-40 pointer-events-none"
+	>
+		<svg
+			class="w-6 h-6 text-black"
+			fill="none"
+			stroke="currentColor"
+			viewBox="0 0 24 24"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+				d="M19 14l-7 7m0 0l-7-7m7 7V3"
+			></path>
+		</svg>
+	</div>
 </section>
-
-<style>
-	.shape-2 {
-		right: -25%;
-		bottom: -10%;
-		z-index: -1;
-	}
-
-	@media (max-width: 480px) {
-		.shape-2 {
-			right: -10%;
-			bottom: -15%;
-			width: 50%;
-		}
-	}
-</style>

@@ -1,30 +1,41 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fade, fly } from 'svelte/transition';
+    import gsap from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-	let isVisible = false;
+    let section: HTMLElement;
+    let content: HTMLElement;
 
 	onMount(() => {
-		isVisible = true;
+        gsap.registerPlugin(ScrollTrigger);
+
+        if (content) {
+            gsap.from(content.children, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power3.out"
+            });
+        }
 	});
 </script>
 
-<section class="md:mb-24 mb-12 py-12 md:px-4">
-	<div class="container mx-auto md:max-w-[700px] w-[90vw]">
-		<div class="text-center">
-			{#if isVisible}
-				<div in:fly={{ y: 50, duration: 1000 }}>
-					<h3 in:fade={{ duration: 1000 }} class="mb-12 font-radley text-[#88abda] text-2xl">
-						About the clinic
-					</h3>
-					<h3 class="h-auto">
-						Aavya Mediclinic is a residential OPD clinic located in Bidyapith Road, Deshbandhu Para,
-						Siliguri, West Bengal, India. Dr. Avirup provides medical consultation facilities here
-						on all working days (Monday to Saturday)
-					</h3>
-				</div>
-			{/if}
-		</div>
+<section bind:this={section} class="py-24 px-4 bg-[#faf5f0]">
+	<div bind:this={content} class="container mx-auto max-w-4xl text-center">
+        <span class="text-[#BED173] font-medium tracking-widest uppercase text-sm mb-4 block">Our Location</span>
+		<h3 class="mb-12 font-serif italic text-[#333133] text-4xl md:text-5xl">
+			About the clinic
+		</h3>
+		<p class="text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
+			Aavya Mediclinic is a residential OPD clinic located in Bidyapith Road, Deshbandhu Para,
+			Siliguri, West Bengal, India. Dr. Avirup provides medical consultation facilities here
+			on all working days (Monday to Saturday)
+		</p>
 	</div>
 	<slot></slot>
 </section>
