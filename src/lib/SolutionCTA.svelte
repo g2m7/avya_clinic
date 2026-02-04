@@ -50,7 +50,10 @@
 	});
 </script>
 
-<section bind:this={section} class="bg-[#faf5f0] py-32 px-4 relative overflow-hidden">
+<section
+	bind:this={section}
+	class="bg-white py-24 px-4 relative overflow-hidden my-12 mx-4 md:mx-8 rounded-[2.5rem] shadow-xl border border-gray-100"
+>
 	<div bind:this={content} class="container mx-auto max-w-4xl text-center relative z-10">
 		<span class="text-[#BED173] font-medium tracking-widest uppercase text-sm mb-4 block"
 			>Convenience First</span
@@ -68,13 +71,13 @@
 			<div class="text-2xl text-[#333133]">
 				For appointments: <a
 					href="tel:+917047812650"
-					class="text-[#88abda] font-medium hover:text-[#527359] transition-colors"
+					class="text-[#1a279c] font-medium hover:text-[#527359] transition-colors"
 					>+91 70478 12650</a
 				>
 			</div>
 			<a
 				href="tel:70478-12650"
-				class="text-lg inline-block px-10 py-4 bg-[#BED173] text-white rounded-sm hover:bg-[#527359] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+				class="text-lg inline-block px-10 py-4 bg-[#1a279c] text-white rounded-full hover:bg-[#151f7a] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
 			>
 				Call Now
 			</a>

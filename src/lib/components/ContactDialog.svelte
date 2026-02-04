@@ -41,7 +41,7 @@
 		const clinicNumber = '917047812650';
 
 		const messageText = `👋 *New Inquiry from Website*
-
+		
 👤 *Name:* ${name}
 📞 *Phone:* ${phone}
 
@@ -131,14 +131,21 @@ ${message}`;
 						<label for="phone" class="block text-sm font-medium text-gray-700 mb-1"
 							>Phone Number</label
 						>
-						<input
-							type="tel"
-							id="phone"
-							bind:value={phone}
-							required
-							placeholder="Your contact number"
-							class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#1a279c] focus:ring-2 focus:ring-[#1a279c]/20 outline-none transition-all placeholder:text-gray-400 font-light"
-						/>
+						<div class="relative">
+							<span
+								class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-light border-r border-gray-300 pr-3 pointer-events-none select-none"
+							>
+								+91
+							</span>
+							<input
+								type="tel"
+								id="phone"
+								bind:value={phone}
+								required
+								placeholder="Your contact number"
+								class="w-full pl-[4.5rem] pr-4 py-3 rounded-lg border border-gray-200 focus:border-[#1a279c] focus:ring-2 focus:ring-[#1a279c]/20 outline-none transition-all placeholder:text-gray-400 font-light"
+							/>
+						</div>
 					</div>
 
 					<div>

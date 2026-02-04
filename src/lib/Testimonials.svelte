@@ -67,20 +67,20 @@
 			</h2>
 		</div>
 
-		<div bind:this={grid} class="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+		<div bind:this={grid} class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
 			{#each testimonials as testimonial}
 				<div
-					class="bg-white p-10 rounded-sm shadow-sm break-inside-avoid hover:shadow-lg transition-shadow duration-300"
+					class="bg-white p-6 rounded-2xl shadow-sm break-inside-avoid hover:shadow-lg transition-shadow duration-300"
 				>
-					<div class="text-[#BED173] text-6xl font-serif leading-none mb-4 opacity-50">"</div>
-					<p class="mb-6 text-lg text-gray-600 font-light leading-relaxed">{testimonial.text}</p>
-					<div class="flex items-center mt-auto pt-6 border-t border-gray-100">
+					<div class="text-[#BED173] text-5xl font-serif leading-none mb-3 opacity-50">"</div>
+					<p class="mb-5 text-base text-gray-600 font-light leading-relaxed">{testimonial.text}</p>
+					<div class="flex items-center mt-auto pt-5 border-t border-gray-100">
 						<div
-							class="w-10 h-10 rounded-full bg-[#faf5f0] flex items-center justify-center text-[#527359] font-bold text-lg mr-4"
+							class="w-10 h-10 rounded-full bg-[#faf5f0] flex items-center justify-center text-[#527359] font-bold text-lg mr-3 shadow-inner"
 						>
 							{testimonial.author.charAt(0)}
 						</div>
-						<span class="text-base font-medium text-[#333133]">{testimonial.author}</span>
+						<span class="text-sm font-medium text-[#333133]">{testimonial.author}</span>
 					</div>
 				</div>
 			{/each}

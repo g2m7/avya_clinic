@@ -12,7 +12,7 @@
 </script>
 
 <footer
-	class="bg-[#08263f] text-white pt-24 pb-8 rounded-t-[3rem] -mt-10 relative z-footer"
+	class="bg-[#08263f] text-white pt-16 md:pt-24 pb-12 md:pb-8 rounded-t-[2rem] md:rounded-t-[3rem] -mt-10 relative z-10"
 	{id}
 	use:scrollTo
 >
@@ -81,7 +81,7 @@
 						allow="fullscreen"
 						loading="lazy"
 						referrerpolicy="no-referrer-when-downgrade"
-						class="grayscale hover:grayscale-0 transition-all duration-500"
+						class=""
 					></iframe>
 				</div>
 			</div>
@@ -89,10 +89,10 @@
 
 		<!-- Bottom Bar -->
 		<div
-			class="mt-20 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm"
+			class="mt-12 md:mt-20 pt-8 border-t border-gray-800 flex flex-col-reverse md:flex-row justify-between items-center text-gray-500 text-sm gap-4 md:gap-0 text-center md:text-left"
 		>
 			<p>© {currentYear} Aavya Mediclinic. All rights reserved.</p>
-			<div class="flex gap-6 mt-4 md:mt-0">
+			<div class="flex gap-6">
 				<a href="/" class="hover:text-white transition-colors">Privacy Policy</a>
 				<a href="/" class="hover:text-white transition-colors">Terms of Service</a>
 			</div>
@@ -101,7 +101,7 @@
 		<!-- Big Text Background -->
 		<div class="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none opacity-5">
 			<h1
-				class="text-[10vw] font-bold text-white whitespace-nowrap text-center leading-none select-none"
+				class="text-[12vw] font-bold text-white whitespace-nowrap text-center leading-none select-none translate-y-[10%]"
 			>
 				AAVYA CLINIC
 			</h1>

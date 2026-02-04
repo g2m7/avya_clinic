@@ -85,6 +85,7 @@
 	});
 
 	function handleServiceClick(title: string) {
+		currentTooltip = null; // Clear tooltip on click
 		const message = `Hello, I would like to enquire about consultation for ${title}.`;
 		contactStore.open(message);
 	}

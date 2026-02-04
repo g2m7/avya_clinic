@@ -25,30 +25,48 @@
 	}
 	// Chat tooltip logic
 	let showChatTooltip = false;
+	let hasShownTooltip = false;
+
+	function triggerTooltip() {
+		if (hasShownTooltip) return;
+		hasShownTooltip = true;
+		showChatTooltip = true;
+		setTimeout(() => {
+			showChatTooltip = false;
+		}, 6000); // Disappear after 6 seconds
+	}
 
 	onMount(() => {
-		// Show tooltip after 12 seconds (delayed as requested)
+		// Show tooltip after 8 seconds (delayed as requested)
 		const timer = setTimeout(() => {
-			showChatTooltip = true;
-		}, 12000);
+			triggerTooltip();
+		}, 8000);
 
 		return () => clearTimeout(timer);
 	});
 
-	// Also show tooltip on scroll if not already shown (threshold increased)
-	$: if (y > 800 && !showChatTooltip) {
-		showChatTooltip = true;
+	// Also show tooltip on scroll if not already shown
+	$: if (y > 800) {
+		triggerTooltip();
+	}
+
+	let innerHeight = 0;
+	let isNearBottom = false;
+
+	$: if (typeof document !== 'undefined') {
+		const scrollHeight = document.documentElement.scrollHeight;
+		isNearBottom = y + innerHeight >= scrollHeight - 300;
 	}
 </script>
 
-<svelte:window bind:scrollY={y} />
+<svelte:window bind:scrollY={y} bind:innerHeight />
 
 <header
-	class="fixed top-0 left-0 w-full z-[999] transition-all duration-300 ease-in-out border-b border-transparent {isScrolled
+	class="fixed top-0 left-0 w-full z-[5001] transition-all duration-300 ease-in-out border-b border-transparent {isScrolled
 		? 'bg-white/90 backdrop-blur-md shadow-sm py-3'
 		: 'bg-transparent py-5'}"
 >
-	<nav class="container mx-auto px-4 md:px-8 flex justify-between items-center relative">
+	<nav class="container mx-auto px-4 lg:px-8 flex justify-between items-center relative">
 		<!-- Logo -->
 		<a href="/" class="flex-shrink-0 group block relative z-50" on:click={closeMenu}>
 			<img
@@ -60,7 +78,7 @@
 
 		<!-- Desktop Menu -->
 		<div
-			class="hidden md:flex items-center space-x-8 lg:space-x-12 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+			class="hidden lg:flex items-center space-x-8 lg:space-x-12 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
 		>
 			{#each ['About', 'Services', 'Testimonials', 'Socials', 'Contact'] as item}
 				<a
@@ -78,7 +96,7 @@
 		</div>
 
 		<!-- CTA Button -->
-		<div class="hidden md:block">
+		<div class="hidden lg:block">
 			<button
 				on:click={() => contactStore.open()}
 				class="bg-[#1a279c] text-white px-6 py-2.5 rounded-full font-medium text-sm hover:bg-[#151f7a] transition-colors duration-300 shadow-lg hover:shadow-xl"
@@ -88,7 +106,7 @@
 		</div>
 
 		<!-- Mobile Menu Button -->
-		<div class="md:hidden z-50">
+		<div class="lg:hidden z-50">
 			<button
 				on:click={toggleOffcanvas}
 				type="button"
@@ -114,51 +132,57 @@
 			</button>
 		</div>
 	</nav>
-
-	<!-- Mobile Menu Overlay -->
-	{#if isOffcanvasOpen}
-		<div
-			class="fixed inset-0 bg-white/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center space-y-8"
-			transition:fade={{ duration: 200 }}
-		>
-			<nav class="flex flex-col items-center space-y-6 relative z-10 w-full px-8">
-				{#each ['About', 'Services', 'Testimonials', 'Socials', 'Contact'] as item, i}
-					<a
-						href="#{item.toLowerCase()}"
-						on:click={toggleOffcanvas}
-						class="text-gray-900 text-3xl font-light hover:text-[#1a279c] transition-all duration-300 font-outfit"
-						in:fly={{ y: 20, delay: 100 + i * 50, duration: 400 }}
-						use:scrollTo
-					>
-						{item}
-					</a>
-				{/each}
-			</nav>
-		</div>
-	{/if}
 </header>
 
+<!-- Mobile Menu Overlay -->
+{#if isOffcanvasOpen}
+	<div
+		class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[5000] flex flex-col items-center justify-center space-y-8 touch-none"
+		transition:fade={{ duration: 200 }}
+	>
+		<nav class="flex flex-col items-center space-y-6 relative z-10 w-full px-8">
+			{#each ['About', 'Services', 'Testimonials', 'Socials', 'Contact'] as item, i}
+				<a
+					href="#{item.toLowerCase()}"
+					on:click={toggleOffcanvas}
+					class="text-gray-900 text-3xl font-light hover:text-[#1a279c] transition-all duration-300 font-outfit"
+					in:fly={{ y: 20, delay: 100 + i * 50, duration: 400 }}
+					use:scrollTo
+				>
+					{item}
+				</a>
+			{/each}
+		</nav>
+	</div>
+{/if}
+
 <!-- Chat Now Button Container -->
-<div class="fixed bottom-6 right-6 z-[1000] flex items-center gap-4">
+<div
+	class="fixed bottom-6 right-6 z-[1000] flex items-center gap-4 transition-all duration-500 ease-in-out"
+	class:translate-y-[200%]={isNearBottom}
+	class:opacity-0={isNearBottom}
+>
 	<!-- Tooltip -->
 	{#if showChatTooltip}
-		<div
-			transition:fly={{ x: 20, duration: 600 }}
-			class="bg-[#1a279c] text-white px-5 py-3 rounded-xl shadow-2xl font-medium text-sm whitespace-nowrap relative hidden md:block"
-			style="box-shadow: 0 10px 25px -5px rgba(26, 39, 156, 0.4);"
-		>
-			Chat with us 👋
-			<!-- Little triangle arrow pointing right -->
+		<div class="relative z-[1001]" transition:fly={{ x: 20, duration: 600 }}>
+			<!-- Ripple Effect -->
+			<span class="subtle-ripple absolute inset-0 rounded-xl bg-[#1a279c]"></span>
+
 			<div
-				class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[4px] w-3 h-3 bg-[#1a279c] transform rotate-45"
-			></div>
+				class="bg-[#1a279c] text-white px-5 py-3 rounded-xl shadow-2xl font-medium text-sm whitespace-nowrap relative"
+				style="box-shadow: 0 10px 25px -5px rgba(26, 39, 156, 0.4);"
+			>
+				Chat with us
+				<!-- Little triangle arrow pointing right -->
+				<div
+					class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[4px] w-3 h-3 bg-[#1a279c] transform rotate-45"
+				></div>
+			</div>
 		</div>
 	{/if}
 
-	<a
-		href="https://wa.me/917047812650"
-		target="_blank"
-		rel="noopener noreferrer"
+	<button
+		on:click={() => contactStore.open()}
 		class="bg-[#25D366] text-white p-4 rounded-full hover:bg-[#20bd5a] transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 group relative overflow-hidden"
 		aria-label="Chat on WhatsApp"
 	>
@@ -183,5 +207,22 @@
 			></span>
 			<span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
 		</span>
-	</a>
+	</button>
 </div>
+
+<style>
+	.subtle-ripple {
+		animation: ripple 2s cubic-bezier(0, 0, 0.2, 1) 2;
+	}
+
+	@keyframes ripple {
+		0% {
+			transform: scale(1);
+			opacity: 0.3;
+		}
+		100% {
+			transform: scale(1.35);
+			opacity: 0;
+		}
+	}
+</style>
