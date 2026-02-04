@@ -2,8 +2,8 @@
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
 	import { scrollTo } from '$lib/actions/scrollTo';
-    import gsap from 'gsap';
-    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 	interface $$Props {
 		id: string;
@@ -11,8 +11,8 @@
 
 	export let id: $$Props['id'];
 
-    let section: HTMLElement;
-    let grid: HTMLElement;
+	let section: HTMLElement;
+	let grid: HTMLElement;
 
 	const testimonials = [
 		{
@@ -37,43 +37,49 @@
 		}
 	];
 
-    onMount(() => {
-        gsap.registerPlugin(ScrollTrigger);
+	onMount(() => {
+		gsap.registerPlugin(ScrollTrigger);
 
-        if (grid) {
-             gsap.from(grid.children, {
-                scrollTrigger: {
-                    trigger: grid,
-                    start: "top 80%",
-                },
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.1,
-                ease: "power2.out"
-            });
-        }
-    });
+		if (grid) {
+			gsap.from(grid.children, {
+				scrollTrigger: {
+					trigger: grid,
+					start: 'top 80%'
+				},
+				y: 50,
+				opacity: 0,
+				duration: 0.8,
+				stagger: 0.1,
+				ease: 'power2.out'
+			});
+		}
+	});
 </script>
 
 <section bind:this={section} class="py-24 px-4 bg-[#faf5f0] relative" {id} use:scrollTo>
 	<div class="container mx-auto max-w-6xl">
 		<div class="text-center mb-20">
-             <span class="text-[#BED173] font-medium tracking-widest uppercase text-sm mb-4 block">Patient Voices</span>
-		<h2 class="text-4xl md:text-5xl font-light text-[#333133]">
-			Success Stories & <span class="font-serif italic text-[#88abda]">Testimonials</span>
-		</h2>
-        </div>
+			<span class="text-[#BED173] font-medium tracking-widest uppercase text-sm mb-4 block"
+				>Patient Voices</span
+			>
+			<h2 class="text-4xl md:text-5xl font-light text-[#333133]">
+				Success Stories & <span class="font-serif italic text-[#88abda]">Testimonials</span>
+			</h2>
+		</div>
 
 		<div bind:this={grid} class="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
 			{#each testimonials as testimonial}
-				<div class="bg-white p-10 rounded-2xl shadow-sm break-inside-avoid hover:shadow-lg transition-shadow duration-300">
-                    <div class="text-[#BED173] text-6xl font-serif leading-none mb-4 opacity-50">"</div>
+				<div
+					class="bg-white p-10 rounded-sm shadow-sm break-inside-avoid hover:shadow-lg transition-shadow duration-300"
+				>
+					<div class="text-[#BED173] text-6xl font-serif leading-none mb-4 opacity-50">"</div>
 					<p class="mb-6 text-lg text-gray-600 font-light leading-relaxed">{testimonial.text}</p>
 					<div class="flex items-center mt-auto pt-6 border-t border-gray-100">
-                        <div class="w-10 h-10 rounded-full bg-[#faf5f0] flex items-center justify-center text-[#527359] font-bold text-lg mr-4">
-                            {testimonial.author.charAt(0)}
-                        </div>
+						<div
+							class="w-10 h-10 rounded-full bg-[#faf5f0] flex items-center justify-center text-[#527359] font-bold text-lg mr-4"
+						>
+							{testimonial.author.charAt(0)}
+						</div>
 						<span class="text-base font-medium text-[#333133]">{testimonial.author}</span>
 					</div>
 				</div>
@@ -81,12 +87,8 @@
 		</div>
 	</div>
 
-    <div class="absolute bottom-0 right-0 z-0 pointer-events-none hidden md:block opacity-40">
-	<img
-		src="{base}/images/home-back-3.png"
-		alt=""
-		class="w-48"
-	/>
-    </div>
+	<div class="absolute bottom-0 right-0 z-0 pointer-events-none hidden md:block opacity-40">
+		<img src="{base}/images/home-back-3.png" alt="" class="w-48" />
+	</div>
 	<slot></slot>
 </section>
