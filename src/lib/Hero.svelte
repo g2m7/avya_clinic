@@ -43,7 +43,7 @@
 
 <section
 	bind:this={section}
-	class="relative min-h-screen flex flex-col justify-end md:justify-center md:items-center bg-[#faf5f0] overflow-hidden pt-24 pb-12"
+	class="relative min-h-screen flex md:hidden lg:flex flex-col justify-end lg:justify-center lg:items-center bg-[#faf5f0] overflow-hidden pt-24 pb-12"
 >
 	<!-- Decoration: Striped Circle (Left) -->
 	<div
@@ -64,12 +64,12 @@
 		/>
 	</div>
 
-	<!-- Mobile Gradient Overlay (Magazine Style) -->
+	<!-- Mobile Gradient Overlay (Magazine Style) - Only covers text area, not the image -->
 	<div
-		class="absolute inset-0 bg-gradient-to-t from-[#faf5f0] via-[#faf5f0]/80 to-transparent z-10 lg:hidden pointer-events-none"
+		class="absolute bottom-0 left-0 right-0 h-[75%] bg-gradient-to-t from-[#faf5f0] from-5% via-[#faf5f0]/90 via-40% to-transparent z-10 lg:hidden pointer-events-none"
 	></div>
 
-	<div class="container mx-auto px-4 w-full lg:relative lg:z-10">
+	<div class="container mx-auto px-2 md:px-4 w-full lg:relative lg:z-10">
 		<div class="flex flex-col lg:flex-row items-center lg:gap-24">
 			<!-- Text Column (Foreground) -->
 			<div
@@ -78,7 +78,7 @@
 			>
 				<!-- PRESERVED: Leading for Name -->
 				<h1
-					class="text-3xl md:text-6xl lg:text-8xl font-normal text-[#333133] mb-5 lg:mb-6 leading-[1.15] tracking-tighter drop-shadow-sm whitespace-nowrap lg:whitespace-normal"
+					class="text-4xl md:text-6xl lg:text-8xl font-normal text-[#333133] mb-5 lg:mb-6 leading-[1.15] tracking-tighter drop-shadow-sm whitespace-nowrap lg:whitespace-normal"
 				>
 					Dr. Avirup <br class="hidden md:block" /> Majumdar
 				</h1>
@@ -105,13 +105,14 @@
 				</div>
 
 				<div>
-					<!-- PRESERVED: Blue Button -->
+					<!-- PRESERVED: Blue Button with Shine Animation -->
 					<a
 						href="#services"
-						class="group inline-flex items-center gap-3 text-[#333133] text-lg font-medium px-2 py-2 hover:opacity-70 transition-all duration-300"
+						class="group relative inline-flex items-center gap-3 text-[#333133] text-lg font-medium px-2 py-2 hover:opacity-70 transition-all duration-300 overflow-hidden"
 					>
 						<span class="border-b border-[#333133] pb-0.5">View Our Services</span>
-						<span class="transform group-hover:translate-x-1 transition-transform duration-300"
+						<span
+							class="hidden md:inline transform group-hover:translate-x-1 transition-transform duration-300 animate-pulse-subtle"
 							>→</span
 						>
 					</a>
@@ -138,7 +139,7 @@
 
 			<!-- Image Column (Background on Mobile, Bridge on Desktop) -->
 			<div
-				class="absolute -top-[10%] inset-x-0 h-[80vh] z-0 lg:static lg:h-auto lg:w-1/2 flex justify-center lg:justify-end lg:z-auto"
+				class="absolute -top-[7%] inset-x-0 h-[80vh] z-0 lg:static lg:h-auto lg:w-1/2 flex justify-center lg:justify-end lg:z-auto"
 			>
 				<!-- Decoration: Striped Circle (Right Top of Image) -->
 				<div
@@ -184,3 +185,6 @@
 		</svg>
 	</div>
 </section>
+
+<!-- HeroTablet for tablet viewport (md to lg) -->
+<HeroTablet />
