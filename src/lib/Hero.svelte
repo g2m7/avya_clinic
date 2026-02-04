@@ -68,7 +68,7 @@
 			>
 				<!-- PRESERVED: Leading for Name -->
 				<h1
-					class="text-6xl lg:text-8xl font-bold text-black mb-6 leading-[1.05] tracking-tighter drop-shadow-sm"
+					class="text-6xl lg:text-8xl font-normal text-[#333133] mb-6 leading-[1.05] tracking-tighter drop-shadow-sm"
 				>
 					Dr. Avirup <br /> Majumdar
 				</h1>
@@ -76,11 +76,11 @@
 				<!-- PRESERVED: Space Mono Typography for Credentials -->
 				<div class="space-y-3 mb-10 text-sm tracking-tight text-gray-700">
 					<p class="font-mono uppercase">
-						<span class="font-bold text-black">MBBS, MD</span> (General Medicine)
+						<span class="font-bold text-[#333133]">MBBS, MD</span> (General Medicine)
 						<span class="text-gray-400 px-1">|</span> KGMU Lucknow
 					</p>
 					<p class="font-mono uppercase">
-						<span class="font-bold text-black">CCEBDM</span> (Diabetology)
+						<span class="font-bold text-[#333133]">CCEBDM</span> (Diabetology)
 					</p>
 					<p class="font-mono text-xs text-gray-500 mt-2 tracking-widest uppercase opacity-70">
 						Reg No- 72871 (WBMC)
@@ -90,10 +90,13 @@
 				<div>
 					<!-- PRESERVED: Blue Button -->
 					<a
-						href="#contact"
-						class="inline-block bg-[#1a279c] text-white text-lg font-medium py-4 px-10 rounded-sm hover:bg-black transition-colors duration-300 shadow-lg"
+						href="#services"
+						class="group inline-flex items-center gap-3 text-[#333133] text-lg font-medium px-2 py-2 hover:opacity-70 transition-all duration-300"
 					>
-						Check Availability
+						<span class="border-b border-[#333133] pb-0.5">View Our Services</span>
+						<span class="transform group-hover:translate-x-1 transition-transform duration-300"
+							>→</span
+						>
 					</a>
 				</div>
 			</div>

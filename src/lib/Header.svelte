@@ -83,7 +83,7 @@
 				on:click={() => contactStore.open()}
 				class="bg-[#1a279c] text-white px-6 py-2.5 rounded-full font-medium text-sm hover:bg-[#151f7a] transition-colors duration-300 shadow-lg hover:shadow-xl"
 			>
-				Book Appointment
+				Contact Us
 			</button>
 		</div>
 
