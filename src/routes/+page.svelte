@@ -7,8 +7,6 @@
 	import Section4 from '$lib/Section4.svelte';
 	import SolutionCta from '$lib/SolutionCTA.svelte';
 	import Testimonials from '$lib/Testimonials.svelte';
-	import '../app.css';
-	import '../global.css';
 	import Section2 from './../lib/Section2.svelte';
 	import Services from './../lib/Services.svelte';
 	import { scrollTo } from '$lib/actions/scrollTo';
