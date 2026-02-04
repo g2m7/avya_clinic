@@ -96,7 +96,7 @@
 					>
 						<img src={service.image} alt={service.title} class="w-full h-full object-cover" />
 						<div
-							class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"
+							class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 transition-colors duration-300"
 						></div>
 					</div>
 
@@ -104,8 +104,12 @@
 					<div
 						class="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
 					>
-						<h3 class="text-white text-3xl font-light mb-2">{service.title}</h3>
-						<div class="h-1 w-12 bg-[#BED173] transition-all duration-300 group-hover:w-24"></div>
+						<h3 class="text-white text-3xl font-normal tracking-wide mb-2 drop-shadow-md">
+							{service.title}
+						</h3>
+						<div
+							class="h-1 w-12 bg-[#BED173] transition-all duration-300 group-hover:w-24 shadow-sm"
+						></div>
 					</div>
 				</div>
 			{/each}
